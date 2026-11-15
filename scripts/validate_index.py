@@ -283,6 +283,44 @@ def check_manifest(plugin, manifest, version):
     )
 
 
+def validate_package_url(plugin, url):
+    """直链托管在索引仓库自身时，只校验可下载性与包内清单 id。"""
+    expected_id = plugin.get("id")
+    try:
+        with urllib.request.urlopen(
+            urllib.request.Request(url, headers={"User-Agent": USER_AGENT}),
+            timeout=60,
+        ) as resp:
+            data = resp.read(MAX_ARCHIVE_BYTES + 1)
+    except Exception as error:
+        error(f"{expected_id}: package_url 无法下载（{error}）")
+        return
+    if len(data) > MAX_ARCHIVE_BYTES:
+        error(f"{expected_id}: package_url 指向的包超过上限")
+        return
+    try:
+        archive = zipfile.ZipFile(io.BytesIO(data))
+    except zipfile.BadZipFile:
+        error(f"{expected_id}: package_url 不是合法 zip")
+        return
+    entry = next(
+        (i for i in archive.infolist() if i.filename.split("/")[-1] == "plugin.json"),
+        None,
+    )
+    if entry is None:
+        error(f"{expected_id}: package_url 的包内缺少 plugin.json")
+        return
+    try:
+        manifest = json.loads(archive.read(entry).decode("utf-8"))
+    except Exception:
+        error(f"{expected_id}: package_url 的 plugin.json 无法解析")
+        return
+    if manifest.get("id") != expected_id:
+        error(
+            f"{expected_id}: 包内 id 不一致（{manifest.get('id')}）"
+        )
+
+
 def check_plugin(plugin):
     plugin_id = plugin.get("id")
     if not isinstance(plugin_id, str) or not plugin_id:
@@ -292,6 +330,12 @@ def check_plugin(plugin):
     if version is not None and not isinstance(version, str):
         error(f"{plugin_id}: version 必须是字符串")
         return
+    # 直链托管的包不依赖作者仓库的 Release，单独校验后可提前返回。
+    package_url = plugin.get("package_url")
+    if isinstance(package_url, str) and package_url:
+        validate_package_url(plugin, package_url)
+        return
+
     repository = parse_repository(plugin.get("repository"))
     if repository is None:
         error(f"{plugin_id}: repository 不是 GitHub 仓库地址")

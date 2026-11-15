@@ -1,0 +1,38 @@
+name: Ingest plugin inbox
+
+on:
+  schedule:
+    # 每 15 分钟扫一次暂存区；GitHub 的高频 cron 会有排队延迟，够用。
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ingest-inbox
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --quiet jsonschema==4.23.0
+      - name: Ingest inbox
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INBOX_REPO: yyds0399/Muse-Plugins-Inbox
+          INDEX_REPO: ${{ github.repository }}
+        run: python scripts/ingest_inbox.py
+      - name: Validate index after ingest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/validate_index.py
