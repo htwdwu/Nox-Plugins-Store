@@ -341,9 +341,18 @@ def main():
         print(f"\n发现 {len(errors)} 个错误")
         return 1
     validate_schema(index, args.schema)
+    seen_ids = {}
     for plugin in index.get("plugins", []):
         if isinstance(plugin, dict):
             check_plugin(plugin)
+            # 同一 id 只允许出现一次：重复条目会让商店里出现两个相同的插件，
+            # 且更新时无法判断该覆盖哪一条。
+            plugin_id = plugin.get("id")
+            if isinstance(plugin_id, str) and plugin_id:
+                if plugin_id in seen_ids:
+                    error(f"插件 id 重复：{plugin_id}")
+                else:
+                    seen_ids[plugin_id] = True
         else:
             error("plugins 数组项必须是对象")
 
