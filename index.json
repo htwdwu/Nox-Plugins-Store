@@ -136,6 +136,22 @@
       "repository": "https://github.com/xzyy03/muse-plugin-ssh-manager",
       "license": "MIT",
       "version": "1.1.4"
+    },
+    {
+      "id": "yyds0399.e2e-check",
+      "name": {
+        "zh-CN": "链路自检",
+        "en": "E2E Check"
+      },
+      "description": {
+        "zh-CN": "用于验证上传暂存区到商店的自动收集链路，验证后可删除。",
+        "en": "Verifies the inbox-to-store ingest pipeline."
+      },
+      "author": "yyds0399",
+      "repository": "https://github.com/yyds0399/Muse-Plugins-Inbox",
+      "license": "MIT",
+      "version": "1.0.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/yyds0399.e2e-check_1.0.0.zip"
     }
   ]
 }
