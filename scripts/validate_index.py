@@ -266,11 +266,12 @@ def check_manifest(plugin, manifest, version):
     if not isinstance(manifest, dict):
         error(f"{plugin_id}: 包内 plugin.json 顶层必须是对象")
         return
+    # repository 不比对：商店把插件重新托管到商店自己的仓库时，索引里的地址
+    # 与原作者写在包内清单里的地址本来就会不同。
     checks = (
         ("id", manifest.get("id"), plugin.get("id")),
         ("version", manifest.get("version"), version),
         ("publisher", manifest.get("publisher"), plugin.get("author")),
-        ("repository", manifest.get("repository"), plugin.get("repository")),
     )
     for field, actual, expected in checks:
         if actual != expected:
