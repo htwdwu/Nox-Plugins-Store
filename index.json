@@ -188,7 +188,7 @@
         "default": "Self-contained WorkBuddy gateway: manages accounts, talks to upstream directly, exposes OpenAI-compatible /v1 endpoints.",
         "zh-CN": "独立运行的 WorkBuddy 网关：插件内管理账号、直连上游，对外提供 OpenAI 兼容 /v1 接口。"
       },
-      "author": "一束挽风",
+      "author": "yishuwanfeng",
       "repository": "https://github.com/yintaozhou1/wb2api_android",
       "license": "MIT",
       "version": "1.5.2",
