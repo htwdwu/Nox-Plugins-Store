@@ -1,20 +1,32 @@
 # Muse 插件索引
 
-> 本仓库是 [Muse](https://github.com/xzyy03/Muse) 的插件索引，格式与上游 AiCode 插件系统一致。
-> 插件源码与安装包不存放在本仓库：每个插件由作者在自己的 GitHub 仓库维护，通过 Release 发布安装包。
+> 本仓库是 [Muse](https://github.com/xzyy03/Muse) 的插件索引与安装包托管处。
+> 插件源码由作者维护在自己的 GitHub 仓库；安装包统一存放在本仓库的 `packages/`，
+> 经 CI 审计后由 `index.json` 的 `package_url` 直链提供。
+
+**插件开发文档见 [docs/plugin-dev.md](docs/plugin-dev.md)** —— 清单字段、JSON-RPC 协议、
+13 种贡献类型、页面桥、调试与发布流程。
 
 ## 仓库结构
 
 ```text
 .
-├── index.json
+├── index.json              # 插件索引
+├── packages/               # 插件安装包 <id>_<version>.zip
+├── docs/
+│   └── plugin-dev.md       # 插件开发文档
 ├── schema/
 │   └── index.schema.json
 ├── scripts/
-│   └── validate_index.py
+│   ├── validate_index.py   # 索引校验
+│   ├── audit_plugin.py     # 安装包审计
+│   └── ingest_inbox.py     # 从暂存区收包
+├── state/
+│   └── rejected.json       # 未通过审计的记录
 └── .github/
     └── workflows/
-        └── validate-index.yml
+        ├── validate-index.yml
+        └── ingest-inbox.yml
 ```
 
 - `index.json`：插件索引的唯一数据文件。
@@ -83,14 +95,27 @@
 }
 ```
 
-## Release 规范
+## 安装包托管
 
-- 资产文件名为 `{id}_{version}.zip`。
+安装包放在 `packages/<id>_<version>.zip`，索引里用 `package_url` 直链指向它。
+
+上传有两条路：
+
+1. **自动收包**：在 App 里用插件页顶栏的上传图标提交，包写入暂存仓库
+   [`yyds0399/Muse-Plugins-Inbox`](https://github.com/yyds0399/Muse-Plugins-Inbox) 的 `incoming/`；
+   本仓库的 `ingest-inbox.yml` 定时扫描，解包读清单 → 审计 → 复制进 `packages/` 并更新 `index.json`。
+2. **直接提 PR**：自己把 `packages/<id>_<version>.zip` 与 `index.json` 的改动一起提交。
+
+审计会拦截：路径越界、可执行文件、`eval` / `new Function`、`Runtime.getRuntime`、
+`su` 提权、`pm install/grant`、`/bin/sh` 或 `sh -c` 拼接。
+放行 `child_process`、`spawn`、`execSync` 及常见 Node 内置模块（插件本身就是 Node 进程）。
+
+同一个 `id` 只保留一个版本：新版本上架后旧包会被替换。
 
 ## 维护约定
 
 - 一个插件对应 `plugins` 数组中的一个对象。
 - 插件作者更新时修改自己的对象并提交 PR。
-- 推送到 `main` 和 PR 会触发 GitHub Actions，校验索引格式、GitHub 仓库、Release 资产，以及包内 `plugin.json` 的 `id`、`version`、`publisher`、`repository` 与 `name` / `description`。
+- 推送到 `main` 和 PR 会触发 GitHub Actions：校验索引格式、GitHub 仓库、`package_url` 可下载性，以及包内 `plugin.json` 的 `id`、`version`、`publisher` 与 `name` / `description`。
 - 索引中出现的每种语言文本必须与包内清单一致；索引未覆盖的语言只给出警告。
 - 提交前可在本地运行 `python3 scripts/validate_index.py`，需要先安装依赖：`python3 -m pip install jsonschema`。
