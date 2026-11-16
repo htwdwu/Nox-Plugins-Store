@@ -177,6 +177,38 @@
       "license": "MIT",
       "version": "1.5.0",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/yishuwanfeng.wb-gateway_1.5.0.zip"
+    },
+    {
+      "id": "moss.armor-deepseek",
+      "name": {
+        "zh-CN": "破甲控制台 · DeepSeek v2.4",
+        "default": "Armor Console (DeepSeek v2.4)"
+      },
+      "description": {
+        "zh-CN": "破甲提示词一键部署进 prompts.custom：完整版/精简版、全局/项目级、自动备份与一键回滚。纯页面实现，不依赖插件进程。",
+        "default": "Deploy the armor prompt into prompts.custom: full/lite, global/project, auto backup and rollback. Pure page implementation."
+      },
+      "author": "moss",
+      "repository": "https://github.com/moss/armor-deepseek",
+      "license": "MIT",
+      "version": "1.1.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/moss.armor-deepseek_1.1.1.zip"
+    },
+    {
+      "id": "一束挽风.wb-gateway",
+      "name": {
+        "default": "WorkBuddy Gateway",
+        "zh-CN": "WorkBuddy 网关"
+      },
+      "description": {
+        "default": "Self-contained WorkBuddy gateway: manages accounts, talks to upstream directly, exposes OpenAI-compatible /v1 endpoints.",
+        "zh-CN": "独立运行的 WorkBuddy 网关：插件内管理账号、直连上游，对外提供 OpenAI 兼容 /v1 接口。"
+      },
+      "author": "一束挽风",
+      "repository": "https://github.com/yintaozhou1/wb2api_android",
+      "license": "MIT",
+      "version": "1.5.2",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/一束挽风.wb-gateway_1.5.2.zip"
     }
   ]
 }
