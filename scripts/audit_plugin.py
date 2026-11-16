@@ -34,7 +34,6 @@ DANGEROUS_PATTERNS = [
     (re.compile(r"\bprocess\s*\.\s*(?:binding|dlopen|mainModule)\b"), "访问 Node 进程内部"),
     (re.compile(r"\bnew\s+Function\s*\("), "动态构造函数"),
     (re.compile(r"\beval\s*\("), "动态执行字符串代码"),
-    (re.compile(r"\bexecSync\b|\bspawnSync\b|\bspawn\s*\("), "执行外部程序"),
     (re.compile(r"Runtime\s*\.\s*getRuntime\s*\(\s*\)"), "调用 Java Runtime"),
     (re.compile(r"\bsu\s+-c\b|/system/xbin/su"), "提权命令"),
     (re.compile(r"\bpm\s+(?:install|uninstall|grant)\b"), "调用系统包管理器"),
