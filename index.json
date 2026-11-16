@@ -14,7 +14,8 @@
       "author": "community",
       "license": "MIT",
       "version": "1.2.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.demo-kit_1.2.0.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.demo-kit_1.2.0.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     },
     {
       "id": "community.dev-tools",
@@ -29,7 +30,8 @@
       "author": "community",
       "license": "MIT",
       "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.dev-tools_1.1.1.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.dev-tools_1.1.1.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     },
     {
       "id": "demo.background-approval",
@@ -44,7 +46,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.background-approval_1.1.1.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.background-approval_1.1.1.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     },
     {
       "id": "demo.capabilities",
@@ -59,7 +62,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.capabilities_1.0.0.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.capabilities_1.0.0.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     },
     {
       "id": "demo.chat-bridge",
@@ -74,7 +78,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.2.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.chat-bridge_1.2.0.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.chat-bridge_1.2.0.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     },
     {
       "id": "demo.gallery",
@@ -89,7 +94,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.gallery_1.1.0.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.gallery_1.1.0.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     },
     {
       "id": "demo.memory",
@@ -104,7 +110,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.0.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.memory_1.0.1.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.memory_1.0.1.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     },
     {
       "id": "demo.provider",
@@ -119,7 +126,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.0.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.provider_1.0.2.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.provider_1.0.2.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     },
     {
       "id": "demo.ssh-manager",
@@ -135,7 +143,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.1.4",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.ssh-manager_1.1.4.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.ssh-manager_1.1.4.zip",
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
     }
   ]
 }
