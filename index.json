@@ -163,22 +163,6 @@
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/raccoon.gateway_1.0.1.zip"
     },
     {
-      "id": "yishuwanfeng.wb-gateway",
-      "name": {
-        "default": "WorkBuddy Gateway",
-        "zh-CN": "WorkBuddy 网关"
-      },
-      "description": {
-        "default": "Self-contained WorkBuddy gateway: manages accounts, talks to upstream directly, exposes OpenAI-compatible /v1 endpoints. By 一束挽风.",
-        "zh-CN": "独立运行的 WorkBuddy 网关：插件内管理账号、直连上游，对外提供 OpenAI 兼容 /v1 接口。作者：一束挽风"
-      },
-      "author": "yishuwanfeng",
-      "repository": "https://github.com/yintaozhou1/wb2api_android",
-      "license": "MIT",
-      "version": "1.5.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/yishuwanfeng.wb-gateway_1.5.0.zip"
-    },
-    {
       "id": "moss.armor-deepseek",
       "name": {
         "zh-CN": "破甲控制台 · DeepSeek v2.4",
