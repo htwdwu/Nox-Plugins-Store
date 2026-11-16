@@ -8,6 +8,7 @@ import os
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -210,7 +211,7 @@ def download_asset(asset, plugin_id):
     if not isinstance(url, str) or not url.startswith("https://"):
         error(f"{plugin_id}: Release 资产缺少 https 下载地址")
         return None
-    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    request = urllib.request.Request(ascii_url(url), headers={"User-Agent": USER_AGENT})
     try:
         with urllib.request.urlopen(request, timeout=60) as response:
             data = response.read(MAX_ARCHIVE_BYTES + 1)
@@ -284,17 +285,22 @@ def check_manifest(plugin, manifest, version):
     )
 
 
+def ascii_url(url):
+    """插件 id 允许中文，包地址里会出现非 ASCII 字符；urllib 只接受 ASCII URL。"""
+    return urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%~")
+
+
 def validate_package_url(plugin, url):
     """直链托管在索引仓库自身时，只校验可下载性与包内清单 id。"""
     expected_id = plugin.get("id")
     try:
         with urllib.request.urlopen(
-            urllib.request.Request(url, headers={"User-Agent": USER_AGENT}),
+            urllib.request.Request(ascii_url(url), headers={"User-Agent": USER_AGENT}),
             timeout=60,
         ) as resp:
             data = resp.read(MAX_ARCHIVE_BYTES + 1)
-    except Exception as error:
-        error(f"{expected_id}: package_url 无法下载（{error}）")
+    except Exception as exc:
+        error(f"{expected_id}: package_url 无法下载（{exc}）")
         return
     if len(data) > MAX_ARCHIVE_BYTES:
         error(f"{expected_id}: package_url 指向的包超过上限")
