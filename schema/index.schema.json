@@ -103,7 +103,7 @@
         },
         "author": {
           "type": "string",
-          "pattern": "^[a-z][a-z0-9-]*$",
+          "pattern": "^[^\\W\\d_][\\w-]*$",
           "maxLength": 48
         },
         "repository": {
