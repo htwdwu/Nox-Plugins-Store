@@ -145,6 +145,22 @@
       "version": "1.1.4",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.ssh-manager_1.1.4.zip",
       "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+    },
+    {
+      "id": "raccoon.gateway",
+      "name": {
+        "default": "Raccoon Gateway",
+        "zh-CN": "小浣熊网关"
+      },
+      "description": {
+        "default": "Runs a local OpenAI-compatible gateway for SenseNova Raccoon Work in the container, with a pooled account pool, automatic token refresh, daily check-in, and QR-code / SMS login.",
+        "zh-CN": "在容器内运行商汤小浣熊（Raccoon Work）的本地 OpenAI 兼容网关，支持账号池轮换、令牌自动续期、每日自动签到，以及扫码与短信登录。"
+      },
+      "author": "raccoon",
+      "repository": "https://github.com/raccoon-gateway/raccoon-gateway-plugin",
+      "license": "MIT",
+      "version": "1.0.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/raccoon.gateway_1.0.1.zip"
     }
   ]
 }
