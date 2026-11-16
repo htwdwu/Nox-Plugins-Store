@@ -60,6 +60,24 @@ def gh(token, method, url, body=None):
         return e.code, e.read().decode()[:300]
 
 
+def ascii_author(publisher, plugin_id, fallback: str) -> str:
+    """索引的 author 尽量给出 ASCII 形式。
+
+    旧版客户端对 author 用 `^[a-z][a-z0-9-]*$` 校验，一个中文作者会让整份索引被拒，
+    连带其他插件都看不到。清单里的中文作者名仍然保留在插件自己的 name/publisher 里。
+    """
+    candidates = [publisher, (plugin_id or "").split(".")[0], fallback]
+    for value in candidates:
+        text = (value or "").strip().lower()
+        if not text:
+            continue
+        slug = "".join(ch if ch.isascii() and (ch.isalnum() or ch == "-") else "-" for ch in text)
+        slug = slug.strip("-")
+        if slug and slug[0].isalpha():
+            return slug
+    return "plugin"
+
+
 def read_manifest(data: bytes) -> dict | None:
     try:
         archive = zipfile.ZipFile(io.BytesIO(data))
@@ -154,7 +172,9 @@ def main() -> int:
                 "id": plugin_id,
                 "name": localized(manifest.get("name")),
                 "description": localized(manifest.get("description")),
-                "author": manifest.get("publisher") or inbox.split("/")[0],
+                "author": ascii_author(
+                    manifest.get("publisher"), manifest.get("id"), inbox.split("/")[0]
+                ),
                 "repository": manifest.get("repository") or f"https://github.com/{inbox}",
                 "license": manifest.get("license") or "MIT",
                 "version": version,
