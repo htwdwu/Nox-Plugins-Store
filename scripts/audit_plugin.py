@@ -159,7 +159,12 @@ def main() -> int:
         repository = plugin.get("repository", "")
         version = plugin.get("version")
         try:
-            url = latest_release_asset(repository, version, token)
+            # 包直接托管在索引仓库时按直链取，不再查作者仓库的 Release。
+            package_url = plugin.get("package_url")
+            if isinstance(package_url, str) and package_url:
+                url = package_url
+            else:
+                url = latest_release_asset(repository, version, token)
             data = download(url, token, MAX_ARCHIVE_BYTES)
             problems = audit_archive(data)
         except (urllib.error.URLError, ValueError, KeyError) as error:
