@@ -15,6 +15,7 @@ import os
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -59,8 +60,13 @@ def api_get(url: str, token: str | None = None) -> bytes:
         return resp.read()
 
 
+def ascii_url(url: str) -> str:
+    """插件 id 允许中文，包地址可能含非 ASCII 字符；urllib 只接受 ASCII URL。"""
+    return urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%~")
+
+
 def download(url: str, token: str | None, limit: int) -> bytes:
-    req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
+    req = urllib.request.Request(ascii_url(url), headers={"User-Agent": USER_AGENT})
     if token:
         req.add_header("Authorization", f"Bearer {token}")
     with urllib.request.urlopen(req, timeout=60) as resp:
