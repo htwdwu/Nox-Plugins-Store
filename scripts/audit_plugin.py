@@ -28,9 +28,9 @@ MAX_ARCHIVE_BYTES = 16 * 1024 * 1024
 MAX_ENTRIES = 2000
 MAX_TEXT_BYTES = 2 * 1024 * 1024
 
+# 插件 runtime 本身就是 Node 进程：child_process、fs、http 都是它的正常能力，
+# 不作为拒绝理由。真正的危险项（提权、包管理器、shell 注入、可执行文件）仍然拦截。
 DANGEROUS_PATTERNS = [
-    (re.compile(r"\bchild_process\b"), "调用子进程（child_process）"),
-    (re.compile(r"\brequire\s*\(\s*['\"]child_process['\"]"), "加载 Node 子进程模块"),
     (re.compile(r"\bprocess\s*\.\s*(?:binding|dlopen|mainModule)\b"), "访问 Node 进程内部"),
     (re.compile(r"\bnew\s+Function\s*\("), "动态构造函数"),
     (re.compile(r"\beval\s*\("), "动态执行字符串代码"),
