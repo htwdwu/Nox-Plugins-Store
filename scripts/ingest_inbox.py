@@ -60,6 +60,25 @@ def gh(token, method, url, body=None):
         return e.code, e.read().decode()[:300]
 
 
+def _semver_key(version: str):
+    """把 SemVer 拆成可比较的元组；预发布版本排在正式版之前。"""
+    main, _, pre = (version or "").strip().partition("-")
+    parts = []
+    for chunk in main.split("."):
+        try:
+            parts.append(int(chunk))
+        except ValueError:
+            parts.append(0)
+    while len(parts) < 3:
+        parts.append(0)
+    # 无预发布标记的正式版更大；有预发布时按字符串比较，够用。
+    return (tuple(parts), 0 if pre else 1, pre)
+
+
+def semver_gt(candidate: str, current: str) -> bool:
+    return _semver_key(candidate) > _semver_key(current)
+
+
 def ascii_author(publisher, plugin_id, fallback: str) -> str:
     """索引的 author 尽量给出 ASCII 形式。
 
@@ -119,7 +138,16 @@ def main() -> int:
     index_sha = index_file["sha"]
     index = json.loads(base64.b64decode(index_file["content"]).decode("utf-8"))
     plugins = index.setdefault("plugins", [])
-    known = {(p.get("id"), p.get("version")) for p in plugins}
+    # 同一个 id 只保留一个条目：新版本上架时替换旧的，版本号更低的包直接跳过。
+    # 若按 (id, version) 判重，暂存区里遗留的旧包会在下次扫描时被重新加回索引。
+    latest_by_id = {p.get("id"): (p.get("version") or "") for p in plugins}
+
+    def newer_than_indexed(plugin_id: str, version: str) -> bool:
+        current = latest_by_id.get(plugin_id)
+        if current is None:
+            return True
+        return semver_gt(version, current)
+
 
     # 2. 列出暂存区
     status, listing = gh(token, "GET", f"{API}/repos/{inbox}/contents/incoming")
@@ -135,6 +163,7 @@ def main() -> int:
     rejected = {}
     changed = False
     packages: list[tuple[str, bytes]] = []
+    stale_packages: list[str] = []
 
     for item in candidates:
         status, blob = gh(token, "GET", item["url"])
@@ -156,8 +185,8 @@ def main() -> int:
         if not plugin_id or not version:
             rejected[item["name"]] = "plugin.json 缺少 id 或 version"
             continue
-        if (plugin_id, version) in known:
-            print(f"  - 跳过已上架 {plugin_id} {version}")
+        if not newer_than_indexed(plugin_id, version):
+            print(f"  - 跳过 {plugin_id} {version}（索引里已有 {latest_by_id.get(plugin_id)}）")
             continue
 
         problems = audit_plugin.audit_archive(data)
@@ -166,6 +195,11 @@ def main() -> int:
             print(f"  ✗ {plugin_id} {version}: {problems[0]}")
             continue
 
+        # 同 id 的旧条目连同旧包一起下架，避免商店里出现两个同名插件。
+        for old in [p for p in plugins if p.get("id") == plugin_id]:
+            old_pkg = f"{plugin_id}_{old.get('version') or ''}.zip"
+            plugins.remove(old)
+            stale_packages.append(old_pkg)
         packages.append((f"{plugin_id}_{version}.zip", data))
         plugins.append(
             {
@@ -184,11 +218,27 @@ def main() -> int:
                 ),
             }
         )
-        known.add((plugin_id, version))
+        latest_by_id[plugin_id] = version
         changed = True
         print(f"  ✓ {plugin_id} {version} 通过")
 
-    # 3. 写入包文件
+    # 3. 删除被替换的同 id 旧包
+    for name in dict.fromkeys(stale_packages):
+        if name in {n for n, _ in packages}:
+            continue
+        status, existing = gh(
+            token, "GET", f"{API}/repos/{index_repo}/contents/{PACKAGES_DIR}/{name}"
+        )
+        if status == 200:
+            status, _ = gh(
+                token,
+                "DELETE",
+                f"{API}/repos/{index_repo}/contents/{PACKAGES_DIR}/{name}",
+                {"message": f"plugin: 移除被替换的 {name}", "sha": existing["sha"]},
+            )
+            print(f"  旧包删除 {name}: {status}")
+
+    # 4. 写入包文件
     for name, data in packages:
         encoded = base64.b64encode(data).decode()
         status, existing = gh(
@@ -202,7 +252,7 @@ def main() -> int:
         )
         print(f"  包写入 {name}: {status}")
 
-    # 4. 更新索引
+    # 5. 更新索引
     if changed:
         status, resp = gh(
             token,
@@ -218,7 +268,7 @@ def main() -> int:
         )
         print(f"索引更新: {status}")
 
-    # 5. 记录被拒项
+    # 6. 记录被拒项
     if rejected:
         existing_status, existing_file = gh(
             token, "GET", f"{API}/repos/{index_repo}/contents/{STATE_PATH}"
