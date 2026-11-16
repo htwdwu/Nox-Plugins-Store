@@ -12,9 +12,9 @@
         "zh-CN": "演示插件系统的完整能力：一个技能、一个只读审查子代理、一个带结构化页面的项目工具、三个 AI 工具、一个只读生命周期 Hook，以及一个拒绝 .env 访问的可写 Hook。"
       },
       "author": "community",
-      "repository": "https://github.com/xzyy03/muse-plugin-demo-kit",
       "license": "MIT",
-      "version": "1.2.0"
+      "version": "1.2.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.demo-kit_1.2.0.zip"
     },
     {
       "id": "community.dev-tools",
@@ -27,9 +27,9 @@
         "zh-CN": "为当前 Flutter / Android 项目提供构建与清理工具。"
       },
       "author": "community",
-      "repository": "https://github.com/xzyy03/muse-plugin-dev-tools",
       "license": "MIT",
-      "version": "1.1.1"
+      "version": "1.1.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.dev-tools_1.1.1.zip"
     },
     {
       "id": "demo.background-approval",
@@ -42,9 +42,9 @@
         "zh-CN": "AiCode 在后台时显示悬浮球；AI 需要授权时展开审批面板。App 在前台时直接交回应用内确认框，不阻塞审批。"
       },
       "author": "demo",
-      "repository": "https://github.com/xzyy03/muse-plugin-background-approval",
       "license": "MIT",
-      "version": "1.1.1"
+      "version": "1.1.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.background-approval_1.1.1.zip"
     },
     {
       "id": "demo.capabilities",
@@ -57,9 +57,9 @@
         "zh-CN": "演示对话内提示条、插件级 Shizuku 授权、会话输入框写入 API 与文件/选区动作入口：可在插件配置页直接触发，也可以让 AI 调用两个演示工具。"
       },
       "author": "demo",
-      "repository": "https://github.com/xzyy03/muse-plugin-capabilities",
       "license": "MIT",
-      "version": "1.0.0"
+      "version": "1.0.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.capabilities_1.0.0.zip"
     },
     {
       "id": "demo.chat-bridge",
@@ -72,9 +72,9 @@
         "zh-CN": "演示给 AI 下达指令、接收回复并在网页内处理工具授权的对话界面，可作为 QQ / 微信机器人接入的消息回路示例。"
       },
       "author": "demo",
-      "repository": "https://github.com/xzyy03/muse-plugin-chat-bridge",
       "license": "MIT",
-      "version": "1.2.0"
+      "version": "1.2.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.chat-bridge_1.2.0.zip"
     },
     {
       "id": "demo.gallery",
@@ -87,9 +87,9 @@
         "en": "Demonstrates plugin configuration page (configPage), settings/drawer/header slots and host Vue UI components with persistence."
       },
       "author": "demo",
-      "repository": "https://github.com/xzyy03/muse-plugin-gallery",
       "license": "MIT",
-      "version": "1.1.0"
+      "version": "1.1.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.gallery_1.1.0.zip"
     },
     {
       "id": "demo.memory",
@@ -102,9 +102,9 @@
         "en": "Manage existing global and project memories in Settings by reading and writing ~/.aicode/memory and the workspace .aicode/memory."
       },
       "author": "demo",
-      "repository": "https://github.com/xzyy03/muse-plugin-memory",
       "license": "MIT",
-      "version": "1.0.1"
+      "version": "1.0.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.memory_1.0.1.zip"
     },
     {
       "id": "demo.provider",
@@ -117,9 +117,9 @@
         "en": "Starts a local OpenAI-compatible echo service so AiCode can verify plugin provider registration and requests."
       },
       "author": "demo",
-      "repository": "https://github.com/xzyy03/muse-plugin-provider",
       "license": "MIT",
-      "version": "1.0.2"
+      "version": "1.0.2",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.provider_1.0.2.zip"
     },
     {
       "id": "demo.ssh-manager",
@@ -133,9 +133,9 @@
         "zh-CN": "常驻示例插件：App 启动时连接启用的 SSH 服务器，并向 AI 提供状态查看与远程命令工具。"
       },
       "author": "demo",
-      "repository": "https://github.com/xzyy03/muse-plugin-ssh-manager",
       "license": "MIT",
-      "version": "1.1.4"
+      "version": "1.1.4",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.ssh-manager_1.1.4.zip"
     }
   ]
 }
