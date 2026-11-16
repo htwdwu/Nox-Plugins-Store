@@ -17,6 +17,7 @@ import json
 import os
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -35,6 +36,9 @@ MAX_PACKAGE_BYTES = 20 * 1024 * 1024
 
 
 def gh(token, method, url, body=None):
+    # 插件 id 允许中文，写回仓库时路径里会出现非 ASCII 字符；
+    # urllib 只接受 ASCII 的 URL，这里统一做一次百分号编码（已编码部分不受影响）。
+    url = urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%~")
     data = json.dumps(body).encode() if body is not None else None
     req = urllib.request.Request(
         url,

@@ -92,7 +92,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^[a-z][a-z0-9-]*\\.[a-z][a-z0-9-]*$",
+          "pattern": "^[^\\W\\d_][\\w-]*\\.[^\\W\\d_][\\w-]*$",
           "maxLength": 96
         },
         "name": {
