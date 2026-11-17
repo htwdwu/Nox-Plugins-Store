@@ -223,8 +223,24 @@
       "author": "jinghan",
       "repository": "https://github.com/jinghan/dafeiyu-pet",
       "license": "MIT",
-      "version": "2.5.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.dafeiyu-pet_2.5.2.zip"
+      "version": "2.9.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.dafeiyu-pet_2.9.1.zip"
+    },
+    {
+      "id": "jinghan.han",
+      "name": {
+        "default": "Han Kernel",
+        "zh-CN": "寒"
+      },
+      "description": {
+        "default": "Han prompt kernel for Muse: installs rewrite/reasoning/lite kernels into prompts.custom with SHA-256 locking. By 惊寒.",
+        "zh-CN": "寒 · 提示词内核 muse 适配版：把 rewrite/reasoning/lite 三档内核装进 prompts.custom，带 SHA-256 指纹锁。作者：惊寒。"
+      },
+      "author": "jinghan",
+      "repository": "https://github.com/jinghan/han-muse",
+      "license": "CC-BY-NC-SA-4.0",
+      "version": "3.0.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.han_3.0.0.zip"
     }
   ]
 }
