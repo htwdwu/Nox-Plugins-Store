@@ -7,6 +7,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -290,15 +291,37 @@ def ascii_url(url):
     return urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%~")
 
 
+def fetch_with_retry(url, timeout=60, attempts=4):
+    """下载包内容，404 时退避重试。
+
+    包刚由 ingest 提交时 raw CDN 还没刷新，紧跟着跑的校验会拿到 404 —— 这是
+    传播延迟，不是索引坏了。给几次退避重试，避免把时序问题判成校验失败。
+    """
+    last = None
+    for attempt in range(attempts):
+        try:
+            with urllib.request.urlopen(
+                urllib.request.Request(ascii_url(url), headers={"User-Agent": USER_AGENT}),
+                timeout=timeout,
+            ) as resp:
+                return resp.read(MAX_ARCHIVE_BYTES + 1)
+        except urllib.error.HTTPError as exc:
+            last = exc
+            # 只有暂时性状态码值得重试；404 在 CDN 刚写入时也会短暂出现。
+            if exc.code not in (404, 408, 429, 500, 502, 503, 504):
+                raise
+        except Exception as exc:
+            last = exc
+        if attempt < attempts - 1:
+            time.sleep(3 * (attempt + 1))
+    raise last if last is not None else RuntimeError("下载失败")
+
+
 def validate_package_url(plugin, url):
     """直链托管在索引仓库自身时，只校验可下载性与包内清单 id。"""
     expected_id = plugin.get("id")
     try:
-        with urllib.request.urlopen(
-            urllib.request.Request(ascii_url(url), headers={"User-Agent": USER_AGENT}),
-            timeout=60,
-        ) as resp:
-            data = resp.read(MAX_ARCHIVE_BYTES + 1)
+        data = fetch_with_retry(url)
     except Exception as exc:
         error(f"{expected_id}: package_url 无法下载（{exc}）")
         return

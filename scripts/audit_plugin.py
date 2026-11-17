@@ -14,6 +14,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -65,15 +66,32 @@ def ascii_url(url: str) -> str:
     return urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%~")
 
 
-def download(url: str, token: str | None, limit: int) -> bytes:
-    req = urllib.request.Request(ascii_url(url), headers={"User-Agent": USER_AGENT})
-    if token:
-        req.add_header("Authorization", f"Bearer {token}")
-    with urllib.request.urlopen(req, timeout=60) as resp:
-        data = resp.read(limit + 1)
-    if len(data) > limit:
-        raise ValueError(f"插件包超过 {limit // 1024 // 1024}MB 上限")
-    return data
+def download(url: str, token: str | None, limit: int, attempts: int = 4) -> bytes:
+    """下载插件包，暂时性失败（含 CDN 尚未刷新时的 404）退避重试。
+
+    包刚由 ingest 提交时 raw CDN 还没跟上，紧跟着跑的审计会拿到 404。
+    这是传播延迟，不是包有问题，直接判失败只会误伤刚上架的插件。
+    """
+    last: Exception | None = None
+    for attempt in range(attempts):
+        req = urllib.request.Request(ascii_url(url), headers={"User-Agent": USER_AGENT})
+        if token:
+            req.add_header("Authorization", f"Bearer {token}")
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                data = resp.read(limit + 1)
+            if len(data) > limit:
+                raise ValueError(f"插件包超过 {limit // 1024 // 1024}MB 上限")
+            return data
+        except urllib.error.HTTPError as exc:
+            last = exc
+            if exc.code not in (404, 408, 429, 500, 502, 503, 504):
+                raise
+        except Exception as exc:
+            last = exc
+        if attempt < attempts - 1:
+            time.sleep(3 * (attempt + 1))
+    raise last if last is not None else RuntimeError("下载失败")
 
 
 def latest_release_asset(repository: str, version: str | None, token: str | None) -> str:
