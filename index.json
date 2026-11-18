@@ -257,6 +257,22 @@
       "license": "MIT",
       "version": "1.0.0",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.0.zip"
+    },
+    {
+      "id": "community.inpage-translator",
+      "name": {
+        "default": "In-Page Translator",
+        "zh-CN": "整页翻译"
+      },
+      "description": {
+        "default": "Translate the built-in browser's current page into Chinese. The plugin hands the task to the current AI session, which drives the browser itself.",
+        "zh-CN": "把内置浏览器当前页面翻译成中文。插件把任务派给当前工作区的 AI 会话，由 AI 用自己的浏览器工具取节点、翻译、回填。"
+      },
+      "author": "community",
+      "repository": "https://github.com/7gzgn/dsh-inpage-translator",
+      "license": "MIT",
+      "version": "2.1.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.inpage-translator_2.1.0.zip"
     }
   ]
 }
