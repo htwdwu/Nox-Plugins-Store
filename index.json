@@ -273,6 +273,22 @@
       "license": "MIT",
       "version": "2.1.0",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.inpage-translator_2.1.0.zip"
+    },
+    {
+      "id": "jinghan.subagents-pack",
+      "name": {
+        "default": "子代理团队",
+        "zh-CN": "子代理团队"
+      },
+      "description": {
+        "default": "Installs a curated team of 8 sub-agents into ~/.muse/agents on enable. Add/remove each one or all from a simple panel. By 惊寒.",
+        "zh-CN": "装插件即自动把 8 个子代理写进 ~/.muse/agents；面板里可单独或批量安装/卸载，卸载插件即删除子代理。作者：惊寒。"
+      },
+      "author": "jinghan",
+      "repository": "https://github.com/jinghan/subagents-pack-muse",
+      "license": "MIT",
+      "version": "1.1.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.0.zip"
     }
   ]
 }
