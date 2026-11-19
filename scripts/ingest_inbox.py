@@ -164,7 +164,8 @@ def main() -> int:
     changed = False
     packages: list[tuple[str, bytes]] = []
     stale_packages: list[str] = []
-    # 已并入索引的暂存区条目，稍后从 incoming/ 删掉，避免每轮都重复「跳过」。
+    # 已在索引里的暂存区条目（本轮新上架的，或早先已上架留下的），稍后从
+    # incoming/ 删掉，免得每轮都重复打印一堆「跳过」。
     consumed: list[dict] = []
 
     for item in candidates:
@@ -189,6 +190,9 @@ def main() -> int:
             continue
         if not newer_than_indexed(plugin_id, version):
             print(f"  - 跳过 {plugin_id} {version}（索引里已有 {latest_by_id.get(plugin_id)}）")
+            # 索引里有这个版本就说明它早先上架成功过；索引版本更高时同理，
+            # 那是被新版本取代的旧包。两种情况源包都该从暂存区清掉。
+            consumed.append(item)
             continue
 
         problems = audit_plugin.audit_archive(data)
@@ -256,7 +260,6 @@ def main() -> int:
         print(f"  包写入 {name}: {status}")
 
     # 5. 更新索引
-    index_updated = False
     if changed:
         status, resp = gh(
             token,
@@ -272,21 +275,27 @@ def main() -> int:
         )
         index_updated = status == 200
         print(f"索引更新: {status}")
+    else:
+        index_updated = True
 
     # 5.5 清掉暂存区里已并入的包
-    # 只能索引提交成功后再删：索引没更新就丢掉源包，等于把这次上传彻底弄没了。
-    # 删除失败不影响上架结果，下一轮会因为「索引里已有同版本」而跳过。
+    # 索引没更新成功就不删：源包是这次上传的唯一副本，丢了等于上传彻底作废。
+    # 暂存区属于另一个账号，workflow 的 GITHUB_TOKEN 只能读它，
+    # 需要 INBOX_TOKEN（对暂存区有 push 权限的个人 PAT）才能删。
     if consumed and index_updated:
+        inbox_token = os.environ.get("INBOX_TOKEN") or token
         removed = 0
         for item in consumed:
-            delete_status, _ = gh(
-                token,
+            delete_status, detail = gh(
+                inbox_token,
                 "DELETE",
                 f"{API}/repos/{inbox}/contents/incoming/{item['name']}",
                 {"message": f"chore: 清理已上架的 {item['name']}", "sha": item["sha"]},
             )
             if delete_status == 200:
                 removed += 1
+            else:
+                print(f"  ! 清理 {item['name']} 失败: {delete_status} {detail}")
         print(f"暂存区清理: {removed}/{len(consumed)}")
 
     # 6. 记录被拒项
