@@ -31,6 +31,8 @@ USER_AGENT = "muse-plugin-ingest"
 DEFAULT_INBOX = "yyds0399/Muse-Plugins-Inbox"
 DEFAULT_INDEX_REPO = "xzyy03/Muse-Plugins-Store"
 PACKAGES_DIR = "packages"
+ICONS_DIR = "icons"
+MAX_ICON_BYTES = 512 * 1024
 STATE_PATH = "state/rejected.json"
 MAX_PACKAGE_BYTES = 20 * 1024 * 1024
 
@@ -114,6 +116,41 @@ def read_manifest(data: bytes) -> dict | None:
         return None
 
 
+ICON_PATH_SUFFIXES = (".png", ".webp")
+
+
+def extract_icon(data: bytes, manifest: dict) -> tuple[str, bytes] | None:
+    """从插件包里取出清单声明的图标文件。
+
+    清单的 icon 有两种写法：内置图标名（如 "zap"）与包内相对路径（.png/.webp）。
+    只有后者能提取成图片给商店列表用；前者没有对应文件，返回 None，客户端显示内置图标。
+    """
+    value = manifest.get("icon")
+    if not isinstance(value, str):
+        return None
+    path = value.strip()
+    if not path.lower().endswith(ICON_PATH_SUFFIXES):
+        return None
+    # 与客户端 isSafeRelativePath 保持一致，避免把越界路径写进索引。
+    if path.startswith("/") or "\\" in path:
+        return None
+    segments = path.split("/")
+    if any(not seg or seg in (".", "..") for seg in segments):
+        return None
+    try:
+        archive = zipfile.ZipFile(io.BytesIO(data))
+    except zipfile.BadZipFile:
+        return None
+    entry = next((i for i in archive.infolist() if i.filename == path), None)
+    if entry is None or entry.file_size > MAX_ICON_BYTES:
+        return None
+    try:
+        payload = archive.read(entry)
+    except Exception:
+        return None
+    return (Path(path).suffix.lower(), payload)
+
+
 def localized(text) -> dict:
     if isinstance(text, dict):
         return text
@@ -167,6 +204,8 @@ def main() -> int:
     # 已在索引里的暂存区条目（本轮新上架的，或早先已上架留下的），稍后从
     # incoming/ 删掉，免得每轮都重复打印一堆「跳过」。
     consumed: list[dict] = []
+    # 包内自带的图标文件，随包一起写进 icons/，供商店列表显示。
+    icons: list[tuple[str, bytes]] = []
 
     for item in candidates:
         status, blob = gh(token, "GET", item["url"])
@@ -207,6 +246,10 @@ def main() -> int:
             plugins.remove(old)
             stale_packages.append(old_pkg)
         packages.append((f"{plugin_id}_{version}.zip", data))
+        icon = extract_icon(data, manifest)
+        icon_name = f"{plugin_id}{icon[0]}" if icon else None
+        if icon and icon_name:
+            icons.append((icon_name, icon[1]))
         plugins.append(
             {
                 "id": plugin_id,
@@ -221,6 +264,18 @@ def main() -> int:
                 "package_url": (
                     f"https://raw.githubusercontent.com/{index_repo}/main/"
                     f"{PACKAGES_DIR}/{plugin_id}_{version}.zip"
+                ),
+                # 没有图片图标（清单里写的是内置图标名）时不写该字段，
+                # 客户端会用插件自己声明的内置图标，比统一方盒子更贴近原意。
+                **(
+                    {
+                        "logo": (
+                            f"https://raw.githubusercontent.com/{index_repo}/main/"
+                            f"{ICONS_DIR}/{icon_name}"
+                        )
+                    }
+                    if icon_name
+                    else {}
                 ),
             }
         )
@@ -258,6 +313,23 @@ def main() -> int:
             token, "PUT", f"{API}/repos/{index_repo}/contents/{PACKAGES_DIR}/{name}", body
         )
         print(f"  包写入 {name}: {status}")
+
+    # 4.5 写入图标文件
+    # 索引里的 logo 指向这些文件，所以必须在上传索引之前落地。
+    for name, data in icons:
+        status, existing = gh(
+            token, "GET", f"{API}/repos/{index_repo}/contents/{ICONS_DIR}/{name}"
+        )
+        body = {
+            "message": f"icon: {name}",
+            "content": base64.b64encode(data).decode(),
+        }
+        if status == 200:
+            body["sha"] = existing["sha"]
+        status, resp = gh(
+            token, "PUT", f"{API}/repos/{index_repo}/contents/{ICONS_DIR}/{name}", body
+        )
+        print(f"  图标写入 {name}: {status}")
 
     # 5. 更新索引
     if changed:
