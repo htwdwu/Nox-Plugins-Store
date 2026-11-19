@@ -29,6 +29,9 @@ jobs:
       - name: Ingest inbox
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # 暂存区是另一个账号的仓库，GITHUB_TOKEN 只能读；清理已上架的源包
+          # 需要这条对暂存区有 push 权限的个人 PAT。没配就只跳过清理。
+          INBOX_TOKEN: ${{ secrets.INBOX_TOKEN }}
           INBOX_REPO: yyds0399/Muse-Plugins-Inbox
           INDEX_REPO: ${{ github.repository }}
         run: python scripts/ingest_inbox.py
