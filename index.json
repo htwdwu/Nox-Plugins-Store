@@ -80,7 +80,8 @@
       "license": "MIT",
       "version": "1.2.0",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.chat-bridge_1.2.0.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store",
+      "icon": "users"
     },
     {
       "id": "demo.gallery",
@@ -112,7 +113,8 @@
       "license": "MIT",
       "version": "1.0.1",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.memory_1.0.1.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store",
+      "icon": "book"
     },
     {
       "id": "demo.provider",
@@ -177,7 +179,8 @@
       "repository": "https://github.com/moss/armor-deepseek",
       "license": "MIT",
       "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/moss.armor-deepseek_1.1.1.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/moss.armor-deepseek_1.1.1.zip",
+      "icon": "shield"
     },
     {
       "id": "一束挽风.wb-gateway",
@@ -193,7 +196,8 @@
       "repository": "https://github.com/yintaozhou1/wb2api_android",
       "license": "MIT",
       "version": "1.5.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/一束挽风.wb-gateway_1.5.2.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/一束挽风.wb-gateway_1.5.2.zip",
+      "icon": "zap"
     },
     {
       "id": "community.modef",
@@ -209,7 +213,8 @@
       "repository": "https://github.com/Magiczerowxy/dsh-modef",
       "license": "MIT",
       "version": "0.9.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.modef_0.9.1.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.modef_0.9.1.zip",
+      "icon": "settings"
     },
     {
       "id": "jinghan.dafeiyu-pet",
@@ -242,7 +247,8 @@
       "repository": "https://github.com/jinghan/han-muse",
       "license": "CC-BY-NC-SA-4.0",
       "version": "3.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.han_3.0.0.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.han_3.0.0.zip",
+      "icon": "box"
     },
     {
       "id": "jinghan.spoof-proxy",
@@ -258,7 +264,8 @@
       "repository": "https://github.com/jinghan/spoof-proxy",
       "license": "MIT",
       "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.0.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.0.zip",
+      "icon": "shield"
     },
     {
       "id": "community.inpage-translator",
@@ -291,7 +298,8 @@
       "repository": "https://github.com/jinghan/env-deps-muse",
       "license": "MIT",
       "version": "1.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.env-deps_1.1.0.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.env-deps_1.1.0.zip",
+      "icon": "layers"
     },
     {
       "id": "jinghan.subagents-pack",
@@ -307,7 +315,8 @@
       "repository": "https://github.com/jinghan/subagents-pack-muse",
       "license": "MIT",
       "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.1.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.1.zip",
+      "icon": "users"
     }
   ]
 }
