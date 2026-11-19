@@ -291,11 +291,12 @@ def ascii_url(url):
     return urllib.parse.quote(url, safe=":/?#[]@!$&'()*+,;=%~")
 
 
-def fetch_with_retry(url, timeout=60, attempts=4):
-    """下载包内容，404 时退避重试。
+def fetch_with_retry(url, timeout=60, attempts=8, backoff_base=5, backoff_cap=30):
+    """下载包内容，暂时性失败时退避重试。
 
     包刚由 ingest 提交时 raw CDN 还没刷新，紧跟着跑的校验会拿到 404 —— 这是
-    传播延迟，不是索引坏了。给几次退避重试，避免把时序问题判成校验失败。
+    传播延迟，不是索引坏了。实测延迟能超过 20 秒，所以退避上限给到 8 次、
+    单次最长 30 秒，累计约两分钟，足够跨过 CDN 的同步窗口。
     """
     last = None
     for attempt in range(attempts):
@@ -313,7 +314,9 @@ def fetch_with_retry(url, timeout=60, attempts=4):
         except Exception as exc:
             last = exc
         if attempt < attempts - 1:
-            time.sleep(3 * (attempt + 1))
+            delay = min(backoff_base * (attempt + 1), backoff_cap)
+            print(f"    重试 {attempt + 1}/{attempts - 1}：{delay}s 后重试 {url}")
+            time.sleep(delay)
     raise last if last is not None else RuntimeError("下载失败")
 
 
