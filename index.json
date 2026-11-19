@@ -275,6 +275,22 @@
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.inpage-translator_2.1.0.zip"
     },
     {
+      "id": "jinghan.env-deps",
+      "name": {
+        "default": "Environment Dependencies Viewer",
+        "zh-CN": "环境依赖查看器"
+      },
+      "description": {
+        "default": "List installed runtime tools and dependencies in the current environment, grouped with versions. By 惊寒.",
+        "zh-CN": "探测并显示当前执行环境里已安装的运行时与依赖，按类别分组并带版本号。作者：惊寒。"
+      },
+      "author": "jinghan",
+      "repository": "https://github.com/jinghan/env-deps-muse",
+      "license": "MIT",
+      "version": "1.1.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.env-deps_1.1.0.zip"
+    },
+    {
       "id": "jinghan.subagents-pack",
       "name": {
         "default": "子代理团队",
@@ -287,8 +303,8 @@
       "author": "jinghan",
       "repository": "https://github.com/jinghan/subagents-pack-muse",
       "license": "MIT",
-      "version": "1.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.0.zip"
+      "version": "1.1.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.1.zip"
     }
   ]
 }
