@@ -164,6 +164,8 @@ def main() -> int:
     changed = False
     packages: list[tuple[str, bytes]] = []
     stale_packages: list[str] = []
+    # 已并入索引的暂存区条目，稍后从 incoming/ 删掉，避免每轮都重复「跳过」。
+    consumed: list[dict] = []
 
     for item in candidates:
         status, blob = gh(token, "GET", item["url"])
@@ -220,6 +222,7 @@ def main() -> int:
         )
         latest_by_id[plugin_id] = version
         changed = True
+        consumed.append(item)
         print(f"  ✓ {plugin_id} {version} 通过")
 
     # 3. 删除被替换的同 id 旧包
@@ -253,6 +256,7 @@ def main() -> int:
         print(f"  包写入 {name}: {status}")
 
     # 5. 更新索引
+    index_updated = False
     if changed:
         status, resp = gh(
             token,
@@ -266,7 +270,24 @@ def main() -> int:
                 "sha": index_sha,
             },
         )
+        index_updated = status == 200
         print(f"索引更新: {status}")
+
+    # 5.5 清掉暂存区里已并入的包
+    # 只能索引提交成功后再删：索引没更新就丢掉源包，等于把这次上传彻底弄没了。
+    # 删除失败不影响上架结果，下一轮会因为「索引里已有同版本」而跳过。
+    if consumed and index_updated:
+        removed = 0
+        for item in consumed:
+            delete_status, _ = gh(
+                token,
+                "DELETE",
+                f"{API}/repos/{inbox}/contents/incoming/{item['name']}",
+                {"message": f"chore: 清理已上架的 {item['name']}", "sha": item["sha"]},
+            )
+            if delete_status == 200:
+                removed += 1
+        print(f"暂存区清理: {removed}/{len(consumed)}")
 
     # 6. 记录被拒项
     if rejected:
