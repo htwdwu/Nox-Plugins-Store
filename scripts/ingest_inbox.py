@@ -277,6 +277,15 @@ def main() -> int:
                     if icon_name
                     else {}
                 ),
+                # 清单写的是内置图标名时原样带上，客户端据此选 Feather 图标；
+                # 一个都不带的话整个商店列表都是同一个方盒子。
+                **(
+                    {"icon": manifest["icon"].strip()}
+                    if not icon_name
+                    and isinstance(manifest.get("icon"), str)
+                    and manifest["icon"].strip()
+                    else {}
+                ),
             }
         )
         latest_by_id[plugin_id] = version
