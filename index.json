@@ -31,7 +31,8 @@
       "license": "MIT",
       "version": "1.1.1",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.dev-tools_1.1.1.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "repository": "https://github.com/xzyy03/Muse-Plugins-Store",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/icons/community.dev-tools.png"
     },
     {
       "id": "demo.background-approval",
@@ -224,7 +225,8 @@
       "repository": "https://github.com/jinghan/dafeiyu-pet",
       "license": "MIT",
       "version": "2.9.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.dafeiyu-pet_2.9.1.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.dafeiyu-pet_2.9.1.zip",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/icons/jinghan.dafeiyu-pet.png"
     },
     {
       "id": "jinghan.han",
@@ -272,7 +274,8 @@
       "repository": "https://github.com/7gzgn/dsh-inpage-translator",
       "license": "MIT",
       "version": "2.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.inpage-translator_2.1.0.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.inpage-translator_2.1.0.zip",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/icons/community.inpage-translator.png"
     },
     {
       "id": "jinghan.env-deps",
