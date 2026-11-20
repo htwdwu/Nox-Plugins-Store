@@ -1,6 +1,6 @@
-# Muse 插件开发文档
+# Nox 插件开发文档
 
-Muse 的插件是一个 zip 包：根目录放一份 `plugin.json` 清单，加上代码、页面、schema 等文件。
+Nox 的插件是一个 zip 包：根目录放一份 `plugin.json` 清单，加上代码、页面、schema 等文件。
 装好后它可以给 App 增加 AI 工具、技能、子代理、工作区工具、界面入口、钩子、MCP 服务器和模型供应商。
 
 本文档面向插件作者。看完你应该能写出、调试并发布一个插件。
@@ -434,7 +434,7 @@ const cfg = JSON.parse(file.content || '{}');
 
 ### 6.1 开发目录
 
-设置 → 插件 → 齿轮 →「开发者侧载」。开启后 `~/.muse/plugin-dev/<项目目录>/`
+设置 → 插件 → 齿轮 →「开发者侧载」。开启后 `~/.nox/plugin-dev/<项目目录>/`
 下每个含 `plugin.json` 的子目录都出现在「开发中」标签页，改文件会自动重打包替换。
 
 ### 6.2 让 AI 自己装
@@ -449,12 +449,12 @@ const cfg = JSON.parse(file.content || '{}');
 | `enable` / `disable` / `uninstall` | 启停与卸载 |
 | `logs` | 读该插件最近运行日志 |
 
-自举流程：写文件到 `~/.muse/plugin-dev/<目录>/` → `install(source=dev)` → 新工具立刻可用 →
+自举流程：写文件到 `~/.nox/plugin-dev/<目录>/` → `install(source=dev)` → 新工具立刻可用 →
 改代码 → `reload` → 起不来 → `logs` 看 `stderr` 与退出码。
 
 ### 6.3 日志
 
-`/storage/emulated/0/Android/data/com.muse/files/logs/`，应用内「设置 → 日志」也能看。
+`/storage/emulated/0/Android/data/com.nox/files/logs/`，应用内「设置 → 日志」也能看。
 调成 Debug 级别能看到插件通信细节。插件进程的日志行带 `[插件ID]` 前缀。
 
 ### 6.4 排查清单
@@ -481,7 +481,7 @@ App 里插件页顶栏的上传图标 → 选包 → 包被写入暂存仓库
 
 ### 7.2 自动上架
 
-商店仓库 [`xzyy03/Muse-Plugins-Store`](https://github.com/xzyy03/Muse-Plugins-Store)
+商店仓库 [`xzyy03/Nox-Plugins-Store`](https://github.com/xzyy03/Nox-Plugins-Store)
 的 Actions 定时扫描暂存区：解包读清单 → 审计 → 通过后复制进 `packages/` 并更新 `index.json`。
 
 ### 7.3 审计规则
@@ -522,7 +522,7 @@ App 里插件页顶栏的上传图标 → 选包 → 包被写入暂存仓库
 
 ## 参考
 
-- 应用内技能：`muse-plugin-dev`（AI 写作插件时会自动加载）
-- 索引仓库：[xzyy03/Muse-Plugins-Store](https://github.com/xzyy03/Muse-Plugins-Store)
+- 应用内技能：`nox-plugin-dev`（AI 写作插件时会自动加载）
+- 索引仓库：[xzyy03/Nox-Plugins-Store](https://github.com/xzyy03/Nox-Plugins-Store)
 - 上传暂存区：[yyds0399/Muse-Plugins-Inbox](https://github.com/yyds0399/Muse-Plugins-Inbox)
-- 主程序：[xzyy03/Muse](https://github.com/xzyy03/Muse)
+- 主程序：[xzyy03/Nox](https://github.com/xzyy03/Nox)

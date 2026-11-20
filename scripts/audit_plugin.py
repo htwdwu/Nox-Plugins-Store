@@ -24,7 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_INDEX = ROOT / "index.json"
 API = "https://api.github.com"
-USER_AGENT = "muse-plugin-audit"
+USER_AGENT = "nox-plugin-audit"
 
 MAX_ARCHIVE_BYTES = 16 * 1024 * 1024
 MAX_ENTRIES = 2000

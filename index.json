@@ -14,8 +14,8 @@
       "author": "community",
       "license": "MIT",
       "version": "1.2.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.demo-kit_1.2.0.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.demo-kit_1.2.0.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
     },
     {
       "id": "community.dev-tools",
@@ -30,9 +30,9 @@
       "author": "community",
       "license": "MIT",
       "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.dev-tools_1.1.1.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/icons/community.dev-tools.png"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.dev-tools_1.1.1.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/community.dev-tools.png"
     },
     {
       "id": "demo.background-approval",
@@ -47,8 +47,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.background-approval_1.1.1.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.background-approval_1.1.1.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
     },
     {
       "id": "demo.capabilities",
@@ -63,8 +63,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.capabilities_1.0.0.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.capabilities_1.0.0.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
     },
     {
       "id": "demo.chat-bridge",
@@ -79,8 +79,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.2.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.chat-bridge_1.2.0.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.chat-bridge_1.2.0.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
       "icon": "users"
     },
     {
@@ -96,8 +96,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.gallery_1.1.0.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.gallery_1.1.0.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
     },
     {
       "id": "demo.memory",
@@ -112,8 +112,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.0.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.memory_1.0.1.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.memory_1.0.1.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
       "icon": "book"
     },
     {
@@ -129,8 +129,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.0.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.provider_1.0.2.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.provider_1.0.2.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
     },
     {
       "id": "demo.ssh-manager",
@@ -146,8 +146,8 @@
       "author": "demo",
       "license": "MIT",
       "version": "1.1.4",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/demo.ssh-manager_1.1.4.zip",
-      "repository": "https://github.com/xzyy03/Muse-Plugins-Store"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.ssh-manager_1.1.4.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
     },
     {
       "id": "raccoon.gateway",
@@ -163,7 +163,7 @@
       "repository": "https://github.com/raccoon-gateway/raccoon-gateway-plugin",
       "license": "MIT",
       "version": "1.0.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/raccoon.gateway_1.0.1.zip"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/raccoon.gateway_1.0.1.zip"
     },
     {
       "id": "moss.armor-deepseek",
@@ -179,7 +179,7 @@
       "repository": "https://github.com/moss/armor-deepseek",
       "license": "MIT",
       "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/moss.armor-deepseek_1.1.1.zip",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/moss.armor-deepseek_1.1.1.zip",
       "icon": "shield"
     },
     {
@@ -196,7 +196,7 @@
       "repository": "https://github.com/yintaozhou1/wb2api_android",
       "license": "MIT",
       "version": "1.5.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/一束挽风.wb-gateway_1.5.2.zip",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.wb-gateway_1.5.2.zip",
       "icon": "zap"
     },
     {
@@ -213,7 +213,7 @@
       "repository": "https://github.com/Magiczerowxy/dsh-modef",
       "license": "MIT",
       "version": "0.9.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.modef_0.9.1.zip",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.modef_0.9.1.zip",
       "icon": "settings"
     },
     {
@@ -223,15 +223,15 @@
         "zh-CN": "大肥鱼桌宠"
       },
       "description": {
-        "default": "Three-view transparent desktop pet: click to interact, drag to move, bubble auto-fits. Sprites from 1190fasheqi/dafeiyu-pet (MIT). Muse port by 惊寒.",
-        "zh-CN": "三视图透明桌宠：单击互动、拖拽移动、气泡随内容自适应。形象与台词来自 1190fasheqi/dafeiyu-pet（MIT）。muse 适配：惊寒。"
+        "default": "Three-view transparent desktop pet: click to interact, drag to move, bubble auto-fits. Sprites from 1190fasheqi/dafeiyu-pet (MIT). Nox port by 惊寒.",
+        "zh-CN": "三视图透明桌宠：单击互动、拖拽移动、气泡随内容自适应。形象与台词来自 1190fasheqi/dafeiyu-pet（MIT）。nox 适配：惊寒。"
       },
       "author": "jinghan",
       "repository": "https://github.com/jinghan/dafeiyu-pet",
       "license": "MIT",
       "version": "2.9.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.dafeiyu-pet_2.9.1.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/icons/jinghan.dafeiyu-pet.png"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.dafeiyu-pet_2.9.1.zip",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/jinghan.dafeiyu-pet.png"
     },
     {
       "id": "jinghan.han",
@@ -240,14 +240,14 @@
         "zh-CN": "寒"
       },
       "description": {
-        "default": "Han prompt kernel for Muse: installs rewrite/reasoning/lite kernels into prompts.custom with SHA-256 locking. By 惊寒.",
-        "zh-CN": "寒 · 提示词内核 muse 适配版：把 rewrite/reasoning/lite 三档内核装进 prompts.custom，带 SHA-256 指纹锁。作者：惊寒。"
+        "default": "Han prompt kernel for Nox: installs rewrite/reasoning/lite kernels into prompts.custom with SHA-256 locking. By 惊寒.",
+        "zh-CN": "寒 · 提示词内核 nox 适配版：把 rewrite/reasoning/lite 三档内核装进 prompts.custom，带 SHA-256 指纹锁。作者：惊寒。"
       },
       "author": "jinghan",
-      "repository": "https://github.com/jinghan/han-muse",
+      "repository": "https://github.com/jinghan/han-nox",
       "license": "CC-BY-NC-SA-4.0",
       "version": "3.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.han_3.0.0.zip",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.han_3.0.0.zip",
       "icon": "box"
     },
     {
@@ -264,7 +264,7 @@
       "repository": "https://github.com/jinghan/spoof-proxy",
       "license": "MIT",
       "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.0.zip",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.0.zip",
       "icon": "shield"
     },
     {
@@ -281,8 +281,8 @@
       "repository": "https://github.com/7gzgn/dsh-inpage-translator",
       "license": "MIT",
       "version": "2.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/community.inpage-translator_2.1.0.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/icons/community.inpage-translator.png"
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.inpage-translator_2.1.0.zip",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/community.inpage-translator.png"
     },
     {
       "id": "jinghan.env-deps",
@@ -295,10 +295,10 @@
         "zh-CN": "探测并显示当前执行环境里已安装的运行时与依赖，按类别分组并带版本号。作者：惊寒。"
       },
       "author": "jinghan",
-      "repository": "https://github.com/jinghan/env-deps-muse",
+      "repository": "https://github.com/jinghan/env-deps-nox",
       "license": "MIT",
       "version": "1.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.env-deps_1.1.0.zip",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.env-deps_1.1.0.zip",
       "icon": "layers"
     },
     {
@@ -308,14 +308,14 @@
         "zh-CN": "子代理团队"
       },
       "description": {
-        "default": "Installs a curated team of 8 sub-agents into ~/.muse/agents on enable. Add/remove each one or all from a simple panel. By 惊寒.",
-        "zh-CN": "装插件即自动把 8 个子代理写进 ~/.muse/agents；面板里可单独或批量安装/卸载，卸载插件即删除子代理。作者：惊寒。"
+        "default": "Installs a curated team of 8 sub-agents into ~/.nox/agents on enable. Add/remove each one or all from a simple panel. By 惊寒.",
+        "zh-CN": "装插件即自动把 8 个子代理写进 ~/.nox/agents；面板里可单独或批量安装/卸载，卸载插件即删除子代理。作者：惊寒。"
       },
       "author": "jinghan",
-      "repository": "https://github.com/jinghan/subagents-pack-muse",
+      "repository": "https://github.com/jinghan/subagents-pack-nox",
       "license": "MIT",
       "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Muse-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.1.zip",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.1.zip",
       "icon": "users"
     }
   ]

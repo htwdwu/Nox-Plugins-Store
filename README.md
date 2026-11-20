@@ -1,6 +1,6 @@
-# Muse 插件索引
+# Nox 插件索引
 
-> 本仓库是 [Muse](https://github.com/xzyy03/Muse) 的插件索引与安装包托管处。
+> 本仓库是 [Nox](https://github.com/xzyy03/Nox) 的插件索引与安装包托管处。
 > 插件源码由作者维护在自己的 GitHub 仓库；安装包统一存放在本仓库的 `packages/`，
 > 经 CI 审计后由 `index.json` 的 `package_url` 直链提供。
 
@@ -79,13 +79,13 @@
   "schema_version": 1,
   "plugins": [
     {
-      "id": "author-name.muse-sample-plugin",
-      "name": { "default": "Muse Sample Plugin", "zh-CN": "Muse 示例插件" },
-      "description": { "default": "A Muse sample plugin.", "zh-CN": "一个 Muse 示例插件。" },
+      "id": "author-name.nox-sample-plugin",
+      "name": { "default": "Nox Sample Plugin", "zh-CN": "Nox 示例插件" },
+      "description": { "default": "A Nox sample plugin.", "zh-CN": "一个 Nox 示例插件。" },
       "author": "author-name",
-      "repository": "https://github.com/author-name/muse-sample-plugin",
-      "logo": "https://raw.githubusercontent.com/author-name/muse-sample-plugin/main/logo.png",
-      "homepage": "https://github.com/author-name/muse-sample-plugin",
+      "repository": "https://github.com/author-name/nox-sample-plugin",
+      "logo": "https://raw.githubusercontent.com/author-name/nox-sample-plugin/main/logo.png",
+      "homepage": "https://github.com/author-name/nox-sample-plugin",
       "license": "MIT",
       "tags": ["tool"],
       "version": "1.0.0",

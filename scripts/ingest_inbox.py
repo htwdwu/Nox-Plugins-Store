@@ -26,10 +26,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import audit_plugin  # noqa: E402
 
 API = "https://api.github.com"
-USER_AGENT = "muse-plugin-ingest"
+USER_AGENT = "nox-plugin-ingest"
 
 DEFAULT_INBOX = "yyds0399/Muse-Plugins-Inbox"
-DEFAULT_INDEX_REPO = "xzyy03/Muse-Plugins-Store"
+DEFAULT_INDEX_REPO = "xzyy03/Nox-Plugins-Store"
 PACKAGES_DIR = "packages"
 ICONS_DIR = "icons"
 MAX_ICON_BYTES = 512 * 1024

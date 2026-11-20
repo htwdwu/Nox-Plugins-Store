@@ -1,5 +1,5 @@
 /**
- * Muse 插件提交代理。
+ * Nox 插件提交代理。
  *
  * App 不带任何 GitHub 凭据：它把插件包 POST 到这个 Worker，Worker 用环境变量里的
  * 令牌把包发到 Release、再向索引仓库提 PR。索引仓库的 CI 负责审计与合并，
@@ -8,7 +8,7 @@
  * 环境变量：
  *   GITHUB_TOKEN   有 repo 写权限的令牌（只在服务端，不进 APK）
  *   GITHUB_OWNER   插件仓库的归属账号，如 xzyy03
- *   INDEX_REPO     索引仓库，如 xzyy03/Muse-Plugins-Store
+ *   INDEX_REPO     索引仓库，如 xzyy03/Nox-Plugins-Store
  *   SUBMIT_SECRET  可选，配置后 App 需带同名 header，用于自用防刷
  */
 
@@ -23,7 +23,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (request.method === "GET" && url.pathname === "/health") {
-      return json({ ok: true, service: "muse-plugin-submit" });
+      return json({ ok: true, service: "nox-plugin-submit" });
     }
     if (request.method !== "POST" || url.pathname !== "/submit") {
       return json({ ok: false, error: "not found" }, 404);
@@ -80,7 +80,7 @@ function validate(payload) {
 async function publish(env, payload, packageBytes) {
   const token = env.GITHUB_TOKEN;
   const owner = env.GITHUB_OWNER;
-  const indexRepo = env.INDEX_REPO || `${owner}/Muse-Plugins-Store`;
+  const indexRepo = env.INDEX_REPO || `${owner}/Nox-Plugins-Store`;
   if (!token || !owner) throw new Error("Worker 未配置 GITHUB_TOKEN / GITHUB_OWNER");
 
   const repoName = repoNameFor(payload.id);
@@ -96,7 +96,7 @@ async function publish(env, payload, packageBytes) {
 
 function repoNameFor(id) {
   const slug = id.split(".").pop() || "plugin";
-  return `muse-plugin-${slug.toLowerCase().replace(/[^a-z0-9._-]/g, "-").replace(/^-+|-+$/g, "")}`;
+  return `nox-plugin-${slug.toLowerCase().replace(/[^a-z0-9._-]/g, "-").replace(/^-+|-+$/g, "")}`;
 }
 
 async function gh(token, method, url, body) {
@@ -106,7 +106,7 @@ async function gh(token, method, url, body) {
       Authorization: `Bearer ${token}`,
       Accept: "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
-      "User-Agent": "muse-plugin-worker",
+      "User-Agent": "nox-plugin-worker",
       ...(body ? { "Content-Type": "application/json" } : {})
     },
     body: body ? JSON.stringify(body) : undefined
@@ -136,7 +136,7 @@ async function ensureRelease(token, owner, repoName, tag, payload) {
   const created = await gh(token, "POST", `${API}/repos/${owner}/${repoName}/releases`, {
     tag_name: tag,
     name: `${payload.name} ${tag}`,
-    body: payload.description || "由 Muse 提交",
+    body: payload.description || "由 Nox 提交",
     draft: false,
     prerelease: false
   });
@@ -154,7 +154,7 @@ async function uploadAsset(token, owner, repoName, releaseId, payload, bytes) {
       Authorization: `Bearer ${token}`,
       Accept: "application/vnd.github+json",
       "Content-Type": "application/zip",
-      "User-Agent": "muse-plugin-worker"
+      "User-Agent": "nox-plugin-worker"
     },
     body: bytes
   });
@@ -205,7 +205,7 @@ async function submitToIndex(token, indexRepo, entry) {
     title: `plugin: ${entry.id} ${entry.version}`,
     head: branch,
     base: "main",
-    body: `由 Muse 提交。\n\n- id: \`${entry.id}\`\n- 版本: \`${entry.version}\`\n\nCI 会校验格式并审计插件包，通过后自动合并。`
+    body: `由 Nox 提交。\n\n- id: \`${entry.id}\`\n- 版本: \`${entry.version}\`\n\nCI 会校验格式并审计插件包，通过后自动合并。`
   });
   return pr ? pr.html_url : null;
 }
