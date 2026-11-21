@@ -251,23 +251,6 @@
       "icon": "box"
     },
     {
-      "id": "jinghan.spoof-proxy",
-      "name": {
-        "zh-CN": "客户端伪装反代",
-        "default": "Client Spoof Proxy"
-      },
-      "description": {
-        "zh-CN": "本地 HTTP 反代：把请求伪装成 Codex / Claude Code 等白名单客户端转发到中转站，绕开「仅支持编程客户端」的 403。",
-        "default": "Local reverse proxy that spoofs whitelisted coding clients."
-      },
-      "author": "jinghan",
-      "repository": "https://github.com/jinghan/spoof-proxy",
-      "license": "MIT",
-      "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.0.zip",
-      "icon": "shield"
-    },
-    {
       "id": "community.inpage-translator",
       "name": {
         "default": "In-Page Translator",
@@ -334,6 +317,23 @@
       "version": "1.0.0",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/caudi.core_1.0.0.zip",
       "icon": "box"
+    },
+    {
+      "id": "jinghan.spoof-proxy",
+      "name": {
+        "zh-CN": "客户端伪装反代",
+        "default": "Client Spoof Proxy"
+      },
+      "description": {
+        "zh-CN": "本地 HTTP 反代：把请求伪装成 Codex / Claude Code 等白名单客户端转发到中转站，绕开「仅支持编程客户端」的 403。",
+        "default": "Local reverse proxy that spoofs whitelisted coding clients."
+      },
+      "author": "jinghan",
+      "repository": "https://github.com/jinghan/spoof-proxy",
+      "license": "MIT",
+      "version": "1.0.2",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.2.zip",
+      "icon": "shield"
     }
   ]
 }
