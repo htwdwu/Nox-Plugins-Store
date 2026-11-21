@@ -317,6 +317,23 @@
       "version": "1.1.1",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.1.zip",
       "icon": "users"
+    },
+    {
+      "id": "caudi.core",
+      "name": {
+        "zh-CN": "Caudi 内核",
+        "default": "Caudi Core"
+      },
+      "description": {
+        "zh-CN": "打包并安装 Caudi 人格（系统提示词 + 长期记忆）到 Muse 自定义提示词，支持叠加与完全接管。",
+        "default": "Bundles and installs the Caudi persona (system prompt + long-term memory) into Muse custom prompts; append or full takeover."
+      },
+      "author": "caudi",
+      "repository": "https://github.com/caudi/core",
+      "license": "MIT",
+      "version": "1.0.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/caudi.core_1.0.0.zip",
+      "icon": "box"
     }
   ]
 }
