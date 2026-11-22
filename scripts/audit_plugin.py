@@ -32,14 +32,22 @@ MAX_TEXT_BYTES = 2 * 1024 * 1024
 
 # 插件 runtime 本身就是 Node 进程：child_process、fs、http 都是它的正常能力，
 # 不作为拒绝理由。真正的危险项（提权、包管理器、shell 注入、可执行文件）仍然拦截。
-DANGEROUS_PATTERNS = [
-    (re.compile(r"\bprocess\s*\.\s*(?:binding|dlopen|mainModule)\b"), "访问 Node 进程内部"),
-    (re.compile(r"\bnew\s+Function\s*\("), "动态构造函数"),
-    (re.compile(r"\beval\s*\("), "动态执行字符串代码"),
-    (re.compile(r"Runtime\s*\.\s*getRuntime\s*\(\s*\)"), "调用 Java Runtime"),
-    (re.compile(r"\bsu\s+-c\b|/system/xbin/su"), "提权命令"),
-    (re.compile(r"\bpm\s+(?:install|uninstall|grant)\b"), "调用系统包管理器"),
-    (re.compile(r"/bin/sh\b|\bsh\s+-c\b"), "调用 shell"),
+# 审核策略（2026-11-22 调整）：只拦「读取本机凭据/设备信息并外传」，
+# shell、eval、spawn、提权等代码能力一律放行。
+DANGEROUS_PATTERNS: list[tuple[re.Pattern[str], str]] = []
+
+# 读取本机凭据文件、其他应用私有目录或设备标识。
+SENSITIVE_PATTERNS = [
+    (re.compile(r"git-credentials|plugin-secrets|\.nox/(?:git-credentials|plugin-secrets)", re.I), "读取本机凭据文件"),
+    (re.compile(r"/data/data/[^\s\"']+/(?:shared_prefs|files)", re.I), "读取其他应用私有目录"),
+    (re.compile(r"\b(?:androidId|ANDROID_ID|deviceId|IMEI|serialNo|macAddress)\b", re.I), "读取设备标识"),
+    (re.compile(r"\bgetprop\b|Settings\s*\.\s*Secure", re.I), "读取系统属性"),
+]
+
+# 网络上传行为；与上面任一敏感项同时命中才拦截，避免误伤正常模型 API 调用。
+UPLOAD_PATTERNS = [
+    (re.compile(r"\bfetch\s*\(|\baxios\b|XMLHttpRequest|sendBeacon", re.I), "网络请求"),
+    (re.compile(r"https?\.request\s*\(|\bnet\s*\.\s*connect\b|\bdgram\b", re.I), "网络请求"),
 ]
 
 BLOCKED_EXTENSIONS = {
@@ -161,6 +169,12 @@ def audit_archive(data: bytes) -> list[str]:
             if match:
                 problems.append(f"{name}: {reason}（{match.group(0)[:40]}）")
                 break
+        sensitive = next(((p, r) for p, r in SENSITIVE_PATTERNS if p.search(text)), None)
+        upload = next(((p, r) for p, r in UPLOAD_PATTERNS if p.search(text)), None)
+        if sensitive and upload:
+            problems.append(
+                f"{name}: 疑似外传本机凭据或设备信息（{sensitive[1]} + {upload[1]}）"
+            )
 
     return problems
 
