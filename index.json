@@ -334,6 +334,23 @@
       "version": "1.0.2",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.2.zip",
       "icon": "shield"
+    },
+    {
+      "id": "jinghan.toolbox",
+      "name": {
+        "default": "JH Toolbox",
+        "zh-CN": "JH 工具箱"
+      },
+      "description": {
+        "default": "JH security toolbox: 40 tools, 365 reference docs, 86 scripts, 7 team subagents. Gate, license, star and telemetry layers removed.",
+        "zh-CN": "JH 安全工具箱：40 个工具 / 365 篇参考文档 / 86 个脚本 / 7 个团队子代理。已剔除卡密门控、点星、更新检查与提示注入层。"
+      },
+      "author": "jinghan",
+      "repository": "https://github.com/ADWMC/helm-d",
+      "license": "AGPL-3.0-or-later",
+      "version": "1.1.8",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.toolbox_1.1.8.zip",
+      "icon": "shield"
     }
   ]
 }
