@@ -40,7 +40,8 @@ DANGEROUS_PATTERNS: list[tuple[re.Pattern[str], str]] = []
 SENSITIVE_PATTERNS = [
     (re.compile(r"git-credentials|plugin-secrets|\.nox/(?:git-credentials|plugin-secrets)", re.I), "读取本机凭据文件"),
     (re.compile(r"/data/data/[^\s\"']+/(?:shared_prefs|files)", re.I), "读取其他应用私有目录"),
-    (re.compile(r"\b(?:androidId|ANDROID_ID|deviceId|IMEI|serialNo|macAddress)\b", re.I), "读取设备标识"),
+    # deviceId 太通用（上游账号/会话响应里也有），只保留真正的本机标识。
+    (re.compile(r"\b(?:androidId|ANDROID_ID|IMEI|serialNo|macAddress)\b", re.I), "读取设备标识"),
     (re.compile(r"\bgetprop\b|Settings\s*\.\s*Secure", re.I), "读取系统属性"),
 ]
 
