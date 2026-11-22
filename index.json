@@ -319,23 +319,6 @@
       "icon": "box"
     },
     {
-      "id": "jinghan.spoof-proxy",
-      "name": {
-        "zh-CN": "客户端伪装反代",
-        "default": "Client Spoof Proxy"
-      },
-      "description": {
-        "zh-CN": "本地 HTTP 反代：把请求伪装成 Codex / Claude Code 等白名单客户端转发到中转站，绕开「仅支持编程客户端」的 403。",
-        "default": "Local reverse proxy that spoofs whitelisted coding clients."
-      },
-      "author": "jinghan",
-      "repository": "https://github.com/jinghan/spoof-proxy",
-      "license": "MIT",
-      "version": "1.0.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.spoof-proxy_1.0.2.zip",
-      "icon": "shield"
-    },
-    {
       "id": "jinghan.toolbox",
       "name": {
         "default": "JH Toolbox",
@@ -351,6 +334,40 @@
       "version": "1.1.8",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.toolbox_1.1.8.zip",
       "icon": "shield"
+    },
+    {
+      "id": "jinghan.spoof-proxy",
+      "name": {
+        "zh-CN": "客户端伪装反代",
+        "default": "Client Spoof Proxy"
+      },
+      "description": {
+        "zh-CN": "本地 HTTP 反代：把请求伪装成 Codex / Claude Code 等白名单客户端转发到中转站，绕开「仅支持编程客户端」的 403。支持多上游聚合，按请求 model 自动路由。",
+        "default": "Local reverse proxy that spoofs whitelisted coding clients, with multi-upstream routing by model."
+      },
+      "author": "jinghan",
+      "repository": "https://github.com/jinghan/spoof-proxy",
+      "license": "MIT",
+      "version": "1.1.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.spoof-proxy_1.1.0.zip",
+      "icon": "shield"
+    },
+    {
+      "id": "一束挽风.header-disguise",
+      "name": {
+        "default": "Header Disguise Gateway",
+        "zh-CN": "请求头伪装网关"
+      },
+      "description": {
+        "default": "Local OpenAI-compatible gateway that rewrites outgoing request fingerprints to a whitelisted coding client (Codex CLI / Claude Code) so header-gated relays stop rejecting with 403.",
+        "zh-CN": "本地 OpenAI 兼容网关：把外发请求伪装成白名单内的编程客户端（Codex CLI / Claude Code），绕过中转站的 UA 客户端拦截。"
+      },
+      "author": "yyds0399",
+      "repository": "https://github.com/yintaozhou1/header-disguise",
+      "license": "MIT",
+      "version": "1.4.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.header-disguise_1.4.1.zip",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.header-disguise.png"
     }
   ]
 }
