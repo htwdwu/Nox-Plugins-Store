@@ -212,7 +212,15 @@ def main() -> int:
         if status != 200:
             print(f"  ! 下载失败 {item['name']}: {status}")
             continue
-        data = base64.b64decode(blob["content"])
+        content_b64 = blob.get("content") or ""
+        if not content_b64:
+            # Contents API 对 >1MB 文件不返回 content，改走 Git blob 接口拿完整 base64。
+            status, blob = gh(token, "GET", item.get("git_url") or item["url"])
+            if status != 200:
+                print(f"  ! 下载失败 {item['name']}: {status}")
+                continue
+            content_b64 = blob.get("content") or ""
+        data = base64.b64decode(content_b64)
         if len(data) > MAX_PACKAGE_BYTES:
             rejected[item["name"]] = f"超过 {MAX_PACKAGE_BYTES // 1024 // 1024}MB"
             continue
