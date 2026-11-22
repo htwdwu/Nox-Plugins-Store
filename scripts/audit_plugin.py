@@ -47,9 +47,11 @@ BLOCKED_EXTENSIONS = {
     ".bin", ".pyc", ".wasm",
 }
 
+# 文档不参与代码规则：README 与 references 里出现 shell 命令示例是正常内容，
+# 只扫描真正会被执行的脚本与配置。
 TEXT_EXTENSIONS = {
-    ".js", ".mjs", ".cjs", ".ts", ".html", ".htm", ".css", ".json", ".md",
-    ".txt", ".yaml", ".yml", ".vue", ".xml", ".svg",
+    ".js", ".mjs", ".cjs", ".ts", ".html", ".htm", ".css", ".json",
+    ".yaml", ".yml", ".vue", ".xml", ".svg",
 }
 
 
