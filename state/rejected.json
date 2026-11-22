@@ -1,4 +1,4 @@
 {
   "raccoon.gateway_1.0.1.zip": "dist/main.js: 执行外部程序（spawn(）",
-  "jinghan.toolbox_1.1.8.zip": "包内没有合法的 plugin.json"
+  "jinghan.toolbox_1.1.8.zip": "README.md: 调用 shell（/bin/sh）；references/native/format-string-exploitation.md: 调用 shell（/bin/sh）；references/native/kernel-exploitation.md: 调用 shell（/bin/sh）；references/native/symbolic-execution-tools.md: 动态执行字符串代码（eval(）；references/native/linux-privilege-escalation-kernel-exploits-checklist.md: 调用 shell（sh -c）"
 }
