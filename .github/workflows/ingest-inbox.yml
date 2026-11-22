@@ -38,4 +38,11 @@ jobs:
       - name: Validate index after ingest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/validate_index.py
+        # ingest 刚提交的包与索引在 raw/CDN 上还没刷新，立刻校验会误报；重试三次。
+        run: |
+          for i in 1 2 3; do
+            if python scripts/validate_index.py; then exit 0; fi
+            echo "validate failed (attempt $i), retry in 60s"
+            sleep 60
+          done
+          exit 1
