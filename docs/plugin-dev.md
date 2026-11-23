@@ -232,6 +232,7 @@ cd hello-plugin && zip -r ../hello-plugin-1.0.0.zip . -x '*.DS_Store'
 | `host.share.text` | 系统分享 |
 | `host.ui.openUrl` | 打开链接 |
 | `host.webview.login` | 受控 WebView 完成第三方网页登录，回传 `{ finalUrl, cookies }` |
+| `host.file.pick` | 系统文件选择器，回传 `{ files: [{ name, size, mime, base64 }] }` |
 | `host.app.info` | 宿主版本、包名 |
 | `host.log` | 写宿主日志文件 |
 | `host.tools.execute` / `pending` / `resolve` | 调用宿主工具、处理待审批 |
@@ -409,8 +410,10 @@ const ctx = await aicode.context();
 
 ### 5.3 网页登录（需 Nox 1.0.10+）
 
-`aicode.webview.login({ url, title?, finishText?, cookieUrls? })` 在 App 内打开受控全屏 WebView，
+`aicode.webview.login({ url, title?, finishText?, cookieUrls?, accentColor?, cornerRadius?, dimAlpha?, showClose? })` 在 App 内打开受控全屏 WebView，
 用户完成第三方网页登录后返回 `{ finalUrl, cookies }`；用户取消抛 `LOGIN_CANCELED`。
+
+可选样式参数：`accentColor`（`#RRGGBB`）、`cornerRadius`（dp）、`dimAlpha`（0–0.9）、`showClose`（bool），缺省跟随 App 主题。
 
 ```js
 const result = await aicode.webview.login({
@@ -426,7 +429,19 @@ await aicode.fs.write('data://session.json', JSON.stringify(result));
 
 WebView 开启 JavaScript、DOM Storage 与第三方 Cookie，登录态写入 App 级 CookieManager 并落盘。
 
-### 5.4 文件与 `data://`
+### 5.4 文件选择（需 Nox 1.0.12+）
+
+`aicode.file.pick({ multiple?, mimeTypes? })` 拉起系统文件选择器，返回：
+
+```js
+const result = await aicode.file.pick({ multiple: false });
+const file = result.files[0];
+// file.name / file.size / file.mime / file.base64（原始内容）
+```
+
+单文件 ≤ 2MB、总计 ≤ 4MB，最多 8 个；取消抛 `PICK_CANCELED`。
+
+### 5.5 文件与 `data://`
 
 路径支持绝对路径、`~/` 家目录、`data://` 私有存储。
 
