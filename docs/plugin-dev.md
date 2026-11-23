@@ -231,6 +231,7 @@ cd hello-plugin && zip -r ../hello-plugin-1.0.0.zip . -x '*.DS_Store'
 | `host.clipboard.read` / `write` | 剪贴板 |
 | `host.share.text` | 系统分享 |
 | `host.ui.openUrl` | 打开链接 |
+| `host.webview.login` | 受控 WebView 完成第三方网页登录，回传 `{ finalUrl, cookies }` |
 | `host.app.info` | 宿主版本、包名 |
 | `host.log` | 写宿主日志文件 |
 | `host.tools.execute` / `pending` / `resolve` | 调用宿主工具、处理待审批 |
@@ -406,7 +407,26 @@ const ctx = await aicode.context();
 
 **桥没有 `plugin` 命名空间**，`aicode.plugin.invoke(...)` 不存在。
 
-### 5.3 文件与 `data://`
+### 5.3 网页登录（需 Nox 1.0.10+）
+
+`aicode.webview.login({ url, title?, finishText?, cookieUrls? })` 在 App 内打开受控全屏 WebView，
+用户完成第三方网页登录后返回 `{ finalUrl, cookies }`；用户取消抛 `LOGIN_CANCELED`。
+
+```js
+const result = await aicode.webview.login({
+  url: 'https://example.com/login',
+  title: '登录 Example',
+  finishText: '完成',
+  cookieUrls: ['https://example.com', 'https://api.example.com']
+});
+await aicode.fs.write('data://session.json', JSON.stringify(result));
+// result.finalUrl                最终停留地址
+// result.cookies                 { 'https://example.com': 'sid=abc; uid=1' }
+```
+
+WebView 开启 JavaScript、DOM Storage 与第三方 Cookie，登录态写入 App 级 CookieManager 并落盘。
+
+### 5.4 文件与 `data://`
 
 路径支持绝对路径、`~/` 家目录、`data://` 私有存储。
 
