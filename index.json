@@ -183,23 +183,6 @@
       "icon": "shield"
     },
     {
-      "id": "一束挽风.wb-gateway",
-      "name": {
-        "default": "WorkBuddy Gateway",
-        "zh-CN": "WorkBuddy 网关"
-      },
-      "description": {
-        "default": "Self-contained WorkBuddy gateway: manages accounts, talks to upstream directly, exposes OpenAI-compatible /v1 endpoints.",
-        "zh-CN": "独立运行的 WorkBuddy 网关：插件内管理账号、直连上游，对外提供 OpenAI 兼容 /v1 接口。"
-      },
-      "author": "yishuwanfeng",
-      "repository": "https://github.com/yintaozhou1/wb2api_android",
-      "license": "MIT",
-      "version": "1.5.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.wb-gateway_1.5.2.zip",
-      "icon": "zap"
-    },
-    {
       "id": "community.modef",
       "name": {
         "default": "Modef — Model & Reasoning Effort",
@@ -368,6 +351,40 @@
       "version": "1.4.1",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.header-disguise_1.4.1.zip",
       "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.header-disguise.png"
+    },
+    {
+      "id": "一束挽风.pojia-gateway",
+      "name": {
+        "default": "Pojia Gateway",
+        "zh-CN": "网关管家"
+      },
+      "description": {
+        "default": "Self-contained AI provider gateway: manages accounts for 14 providers, exposes OpenAI-compatible /v1 endpoints.",
+        "zh-CN": "独立运行的 AI 供应商聚合网关：插件内管理多家账号，对外提供 OpenAI 兼容 /v1 接口。"
+      },
+      "author": "yyds0399",
+      "repository": "https://github.com/xzyy03/pojia2api-android",
+      "license": "MIT",
+      "version": "1.0.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.pojia-gateway_1.0.0.zip",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.pojia-gateway.png"
+    },
+    {
+      "id": "一束挽风.wb-gateway",
+      "name": {
+        "default": "WorkBuddy Gateway",
+        "zh-CN": "WorkBuddy 网关"
+      },
+      "description": {
+        "default": "Self-contained WorkBuddy gateway: manages accounts, talks to upstream directly, exposes OpenAI-compatible /v1 endpoints.",
+        "zh-CN": "独立运行的 WorkBuddy 网关：插件内管理账号、直连上游，对外提供 OpenAI 兼容 /v1 接口。"
+      },
+      "author": "yyds0399",
+      "repository": "https://github.com/yintaozhou1/wb2api_android",
+      "license": "MIT",
+      "version": "1.6.0",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.wb-gateway_1.6.0.zip",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.wb-gateway.png"
     }
   ]
 }
