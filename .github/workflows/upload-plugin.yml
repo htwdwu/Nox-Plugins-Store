@@ -1,0 +1,63 @@
+name: Upload plugin package
+
+# 由审核 App 调用：把插件包写入商店并直接上架，同时标记为已确认。
+# 不走暂存区，因为上传者只有本仓库的写权限。
+on:
+  workflow_dispatch:
+    inputs:
+      file_name:
+        description: 插件包文件名（如 demo.plugin_1.0.0.zip）
+        required: true
+        type: string
+      content_base64:
+        description: 插件包的 base64 内容
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plugin-upload
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Decode package
+        env:
+          FILE_NAME: ${{ inputs.file_name }}
+          CONTENT: ${{ inputs.content_base64 }}
+        run: |
+          python - <<'PY'
+          import base64, os, pathlib
+          name = os.environ["FILE_NAME"]
+          if "/" in name or "\\" in name or not name.endswith(".zip"):
+              raise SystemExit("非法的文件名")
+          path = pathlib.Path("/tmp") / name
+          path.write_bytes(base64.b64decode(os.environ["CONTENT"]))
+          print(f"已还原 {path} ({path.stat().st_size} bytes)")
+          PY
+
+      - name: Apply upload
+        env:
+          FILE_NAME: ${{ inputs.file_name }}
+        run: python scripts/upload_plugin.py --file "/tmp/$FILE_NAME"
+
+      - name: Commit
+        env:
+          FILE_NAME: ${{ inputs.file_name }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.json packages icons state/reviewed.json
+          git diff --cached --quiet && echo "没有变更" && exit 0
+          git commit -m "plugin: 上传 $FILE_NAME"
+          git push
