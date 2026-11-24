@@ -119,3 +119,21 @@
 - 推送到 `main` 和 PR 会触发 GitHub Actions：校验索引格式、GitHub 仓库、`package_url` 可下载性，以及包内 `plugin.json` 的 `id`、`version`、`publisher` 与 `name` / `description`。
 - 索引中出现的每种语言文本必须与包内清单一致；索引未覆盖的语言只给出警告。
 - 提交前可在本地运行 `python3 scripts/validate_index.py`，需要先安装依赖：`python3 -m pip install jsonschema`。
+
+## 人工审核（可选）
+
+插件上传到暂存区后由 `ingest-inbox` 自动审计并上架，不阻塞流水线。
+若需要人工把关，可用审核 App 或在 Actions 里手动触发 `Plugin review action`：
+
+- **通过**：在 `state/reviewed.json` 记录 `{id: {version, at}}`。已记录当前版本的插件不再出现在待审列表。
+- **拒绝**：从 `index.json` 移除该插件，删除 `packages/<id>_<version>.zip` 与 `icons/<id>.*`，并把原因写入 `state/rejected.json`。
+
+待审核的定义是「索引里有、但 `reviewed.json` 里记录的版本与当前版本不一致」。
+
+工作流入参：
+
+| 输入 | 说明 |
+|---|---|
+| `action` | `approve` 或 `reject` |
+| `plugin_ids` | 插件 id，多个用英文逗号分隔 |
+| `reason` | 拒绝原因，可空 |
