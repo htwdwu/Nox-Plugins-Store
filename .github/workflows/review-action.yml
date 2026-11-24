@@ -1,0 +1,50 @@
+name: Plugin review action
+
+# 由审核 App 触发：App 用 workflow_dispatch 传入动作与插件 id，
+# 本工作流执行合并/下架，App 不直接改索引仓库。
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: "approve 或 reject"
+        required: true
+        type: choice
+        options:
+          - approve
+          - reject
+      plugin_ids:
+        description: "插件 id，多个用英文逗号分隔"
+        required: true
+        type: string
+      reason:
+        description: "拒绝原因（可选）"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: plugin-review
+  cancel-in-progress: false
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Apply review action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          INDEX_REPO: ${{ github.repository }}
+          ACTION: ${{ inputs.action }}
+          PLUGIN_IDS: ${{ inputs.plugin_ids }}
+          REASON: ${{ inputs.reason }}
+        run: python scripts/review_plugins.py
