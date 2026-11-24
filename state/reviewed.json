@@ -1,6 +1,102 @@
 {
+  "bigorange.github-mcp": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.5.2"
+  },
+  "caudi.core": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.0.0"
+  },
   "community.demo-kit": {
-    "version": "1.2.0",
-    "at": "2026-11-24T06:01:31Z"
+    "at": "2026-11-24T06:01:31Z",
+    "version": "1.2.0"
+  },
+  "community.dev-tools": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.1"
+  },
+  "community.inpage-translator": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "2.1.0"
+  },
+  "community.modef": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "0.9.1"
+  },
+  "demo.background-approval": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.1"
+  },
+  "demo.capabilities": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.0.0"
+  },
+  "demo.chat-bridge": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.2.0"
+  },
+  "demo.gallery": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.0"
+  },
+  "demo.memory": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.0.1"
+  },
+  "demo.provider": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.0.2"
+  },
+  "demo.ssh-manager": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.4"
+  },
+  "jinghan.dafeiyu-pet": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "2.9.1"
+  },
+  "jinghan.env-deps": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.0"
+  },
+  "jinghan.han": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "3.0.0"
+  },
+  "jinghan.spoof-proxy": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.0"
+  },
+  "jinghan.subagents-pack": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.1"
+  },
+  "jinghan.toolbox": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.8"
+  },
+  "liulei92.gpt-gateway": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.0.1"
+  },
+  "moss.armor-deepseek": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.1.1"
+  },
+  "raccoon.gateway": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.0.1"
+  },
+  "一束挽风.header-disguise": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.4.1"
+  },
+  "一束挽风.pojia-gateway": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.0.0"
+  },
+  "一束挽风.wb-gateway": {
+    "at": "2026-11-24T06:00:00Z",
+    "version": "1.6.0"
   }
 }
