@@ -184,6 +184,23 @@
       "version": "1.0.1"
     },
     {
+      "author": "xzyy03",
+      "description": {
+        "default": "status test",
+        "zh-CN": "状态测试"
+      },
+      "id": "demo.pr-test",
+      "license": "MIT",
+      "name": {
+        "default": "PR Test",
+        "zh-CN": "PR 测试"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.pr-test_1.0.0.zip",
+      "published_at": "2026-11-24T06:46:27Z",
+      "repository": "https://github.com/xzyy03/Nox",
+      "version": "1.0.0"
+    },
+    {
       "author": "demo",
       "description": {
         "en": "Starts a local OpenAI-compatible echo service so AiCode can verify plugin provider registration and requests.",
