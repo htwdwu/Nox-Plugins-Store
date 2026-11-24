@@ -419,24 +419,6 @@
       "version": "1.0.1",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/liulei92.gpt-gateway_1.0.1.zip",
       "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/liulei92.gpt-gateway.png"
-    },
-    {
-      "id": "demo.review-test",
-      "name": {
-        "default": "Review Test",
-        "zh-CN": "审核测试"
-      },
-      "description": {
-        "default": "Temp plugin verifying the review pipeline.",
-        "zh-CN": "临时插件，用于验证审核链路。"
-      },
-      "author": "demo",
-      "repository": "https://github.com/xzyy03/Nox",
-      "license": "MIT",
-      "version": "1.0.0",
-      "published_at": "2026-11-24T06:03:02Z",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.review-test_1.0.0.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/demo.review-test.png"
     }
   ]
 }
