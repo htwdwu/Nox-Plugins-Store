@@ -200,24 +200,6 @@
       "version": "1.0.2"
     },
     {
-      "author": "xzyy03",
-      "description": {
-        "default": "uploaded by owner",
-        "zh-CN": "拥有者自行上传，不应进入待审核"
-      },
-      "id": "demo.self-upload",
-      "license": "MIT",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/demo.self-upload.png",
-      "name": {
-        "default": "Self Upload",
-        "zh-CN": "自传测试"
-      },
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.self-upload_1.0.0.zip",
-      "published_at": "2026-11-24T06:19:43Z",
-      "repository": "https://github.com/xzyy03/Nox",
-      "version": "1.0.0"
-    },
-    {
       "author": "demo",
       "description": {
         "default": "Resident demo plugin: connects enabled SSH servers at app startup and exposes status/exec tools to the AI.",
