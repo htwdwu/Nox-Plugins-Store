@@ -402,22 +402,6 @@
       "version": "1.5.2",
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/bigorange.github-mcp_1.5.2.zip",
       "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/bigorange.github-mcp.png"
-    },
-    {
-      "id": "demo.hook-test",
-      "name": {
-        "default": "Hook Test",
-        "zh-CN": "触发测试"
-      },
-      "description": {
-        "default": "Temp plugin",
-        "zh-CN": "临时插件"
-      },
-      "author": "demo",
-      "repository": "https://github.com/xzyy03/Nox",
-      "license": "MIT",
-      "version": "1.0.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.hook-test_1.0.1.zip"
     }
   ]
 }
