@@ -1,424 +1,442 @@
 {
-  "schema_version": 1,
   "plugins": [
     {
-      "id": "community.demo-kit",
-      "name": {
-        "default": "Demo Kit",
-        "zh-CN": "插件演示套件"
+      "author": "bigorange",
+      "description": {
+        "default": "GitHub workspace tools after login: dashboard, repositories, branches, commits, issues, pulls, file browsing, search — exposed both as plugin tools and a local MCP server.",
+        "zh-CN": "登录 GitHub 后自动获取你的仓库项目：账号工作台、仓库列表与详情、语言构成、分支、提交、Issue/PR、代码浏览与搜索，全部工具同时以本地 MCP 服务对外提供，可接入任意 MCP 客户端。"
       },
+      "id": "bigorange.github-mcp",
+      "license": "MIT",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/bigorange.github-mcp.png",
+      "name": {
+        "default": "GitHub MCP",
+        "zh-CN": "GitHub MCP"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/bigorange.github-mcp_1.5.2.zip",
+      "repository": "https://github.com/bigorange/nox-github-mcp",
+      "version": "1.5.2"
+    },
+    {
+      "author": "caudi",
+      "description": {
+        "default": "Bundles and installs the Caudi persona (system prompt + long-term memory) into Muse custom prompts; append or full takeover.",
+        "zh-CN": "打包并安装 Caudi 人格（系统提示词 + 长期记忆）到 Muse 自定义提示词，支持叠加与完全接管。"
+      },
+      "icon": "box",
+      "id": "caudi.core",
+      "license": "MIT",
+      "name": {
+        "default": "Caudi Core",
+        "zh-CN": "Caudi 内核"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/caudi.core_1.0.0.zip",
+      "repository": "https://github.com/caudi/core",
+      "version": "1.0.0"
+    },
+    {
+      "author": "community",
       "description": {
         "default": "A demo plugin with a skill, a read-only sub-agent, a structured workspace tool, three AI tools, a read-only lifecycle hook and a writable hook that denies .env access.",
         "zh-CN": "演示插件系统的完整能力：一个技能、一个只读审查子代理、一个带结构化页面的项目工具、三个 AI 工具、一个只读生命周期 Hook，以及一个拒绝 .env 访问的可写 Hook。"
       },
-      "author": "community",
+      "id": "community.demo-kit",
       "license": "MIT",
-      "version": "1.2.0",
+      "name": {
+        "default": "Demo Kit",
+        "zh-CN": "插件演示套件"
+      },
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.demo-kit_1.2.0.zip",
-      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "version": "1.2.0"
     },
     {
-      "id": "community.dev-tools",
-      "name": {
-        "default": "Dev Tools",
-        "zh-CN": "开发工具"
-      },
+      "author": "community",
       "description": {
         "default": "Build and clean the current Flutter or Android project.",
         "zh-CN": "为当前 Flutter / Android 项目提供构建与清理工具。"
       },
-      "author": "community",
+      "id": "community.dev-tools",
       "license": "MIT",
-      "version": "1.1.1",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/community.dev-tools.png",
+      "name": {
+        "default": "Dev Tools",
+        "zh-CN": "开发工具"
+      },
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.dev-tools_1.1.1.zip",
       "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/community.dev-tools.png"
+      "version": "1.1.1"
     },
     {
-      "id": "demo.background-approval",
-      "name": {
-        "default": "Background Approval",
-        "zh-CN": "后台审批"
-      },
-      "description": {
-        "default": "Shows a floating ball while AiCode is in the background and expands it into an approval panel when the AI needs permission. Foreground requests are passed straight back to the in-app dialog.",
-        "zh-CN": "AiCode 在后台时显示悬浮球；AI 需要授权时展开审批面板。App 在前台时直接交回应用内确认框，不阻塞审批。"
-      },
-      "author": "demo",
-      "license": "MIT",
-      "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.background-approval_1.1.1.zip",
-      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
-    },
-    {
-      "id": "demo.capabilities",
-      "name": {
-        "default": "Capability Demo",
-        "zh-CN": "能力演示"
-      },
-      "description": {
-        "default": "Demo plugin for conversation tips and plugin-level Shizuku permission.",
-        "zh-CN": "演示对话内提示条、插件级 Shizuku 授权、会话输入框写入 API 与文件/选区动作入口：可在插件配置页直接触发，也可以让 AI 调用两个演示工具。"
-      },
-      "author": "demo",
-      "license": "MIT",
-      "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.capabilities_1.0.0.zip",
-      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
-    },
-    {
-      "id": "demo.chat-bridge",
-      "name": {
-        "default": "Chat Bridge",
-        "zh-CN": "对话桥"
-      },
-      "description": {
-        "default": "A demo chat page for sending instructions to the AI and receiving replies. It shows the message loop and permission approval flow used by QQ/WeChat bot bridges.",
-        "zh-CN": "演示给 AI 下达指令、接收回复并在网页内处理工具授权的对话界面，可作为 QQ / 微信机器人接入的消息回路示例。"
-      },
-      "author": "demo",
-      "license": "MIT",
-      "version": "1.2.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.chat-bridge_1.2.0.zip",
-      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
-      "icon": "users"
-    },
-    {
-      "id": "demo.gallery",
-      "name": {
-        "zh-CN": "UI与配置演示",
-        "en": "UI & Config Demo"
-      },
-      "description": {
-        "zh-CN": "演示插件专属配置页面（configPage）、设置页/侧栏/顶栏槽位入口及宿主 Vue 组件库，支持配置的读取与持久化保存。",
-        "en": "Demonstrates plugin configuration page (configPage), settings/drawer/header slots and host Vue UI components with persistence."
-      },
-      "author": "demo",
-      "license": "MIT",
-      "version": "1.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.gallery_1.1.0.zip",
-      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
-    },
-    {
-      "id": "demo.memory",
-      "name": {
-        "zh-CN": "记忆管理",
-        "en": "Memory"
-      },
-      "description": {
-        "zh-CN": "在设置中管理现有的全局与项目记忆，直接读写 ~/.aicode/memory 与工作区 .aicode/memory。",
-        "en": "Manage existing global and project memories in Settings by reading and writing ~/.aicode/memory and the workspace .aicode/memory."
-      },
-      "author": "demo",
-      "license": "MIT",
-      "version": "1.0.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.memory_1.0.1.zip",
-      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
-      "icon": "book"
-    },
-    {
-      "id": "demo.provider",
-      "name": {
-        "zh-CN": "演示提供商",
-        "en": "Demo Provider"
-      },
-      "description": {
-        "zh-CN": "启动一个本机 OpenAI 兼容服务，把对话回显给 AiCode；用于验证插件提供商注册与请求链路。",
-        "en": "Starts a local OpenAI-compatible echo service so AiCode can verify plugin provider registration and requests."
-      },
-      "author": "demo",
-      "license": "MIT",
-      "version": "1.0.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.provider_1.0.2.zip",
-      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
-    },
-    {
-      "id": "demo.ssh-manager",
-      "name": {
-        "default": "SSH Manager",
-        "zh-CN": "SSH 管理",
-        "en": "SSH Manager"
-      },
-      "description": {
-        "default": "Resident demo plugin: connects enabled SSH servers at app startup and exposes status/exec tools to the AI.",
-        "zh-CN": "常驻示例插件：App 启动时连接启用的 SSH 服务器，并向 AI 提供状态查看与远程命令工具。"
-      },
-      "author": "demo",
-      "license": "MIT",
-      "version": "1.1.4",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.ssh-manager_1.1.4.zip",
-      "repository": "https://github.com/xzyy03/Nox-Plugins-Store"
-    },
-    {
-      "id": "raccoon.gateway",
-      "name": {
-        "default": "Raccoon Gateway",
-        "zh-CN": "小浣熊网关"
-      },
-      "description": {
-        "default": "Runs a local OpenAI-compatible gateway for SenseNova Raccoon Work in the container, with a pooled account pool, automatic token refresh, daily check-in, and QR-code / SMS login.",
-        "zh-CN": "在容器内运行商汤小浣熊（Raccoon Work）的本地 OpenAI 兼容网关，支持账号池轮换、令牌自动续期、每日自动签到，以及扫码与短信登录。"
-      },
-      "author": "raccoon",
-      "repository": "https://github.com/raccoon-gateway/raccoon-gateway-plugin",
-      "license": "MIT",
-      "version": "1.0.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/raccoon.gateway_1.0.1.zip"
-    },
-    {
-      "id": "moss.armor-deepseek",
-      "name": {
-        "zh-CN": "破甲控制台 · DeepSeek v2.4",
-        "default": "Armor Console (DeepSeek v2.4)"
-      },
-      "description": {
-        "zh-CN": "破甲提示词一键部署进 prompts.custom：完整版/精简版、全局/项目级、自动备份与一键回滚。纯页面实现，不依赖插件进程。",
-        "default": "Deploy the armor prompt into prompts.custom: full/lite, global/project, auto backup and rollback. Pure page implementation."
-      },
-      "author": "moss",
-      "repository": "https://github.com/moss/armor-deepseek",
-      "license": "MIT",
-      "version": "1.1.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/moss.armor-deepseek_1.1.1.zip",
-      "icon": "shield"
-    },
-    {
-      "id": "community.modef",
-      "name": {
-        "default": "Modef — Model & Reasoning Effort",
-        "zh-CN": "Modef 模型与推理强度"
-      },
-      "description": {
-        "default": "Port of dsh-modef to AiCode: a model picker with a Claude-style reasoning-effort slider, four max-tier animations, and a request hook that applies the chosen effort to OpenAI-compatible chat requests.",
-        "zh-CN": "将 dsh-modef 适配到 AiCode：模型列表 + Claude 风格推理强度滑块 + 四种最高档动画，并通过请求 hook 把所选档位写入 OpenAI 兼容的聊天请求。发布前请把 repository 改成你自己的仓库地址。"
-      },
       "author": "community",
-      "repository": "https://github.com/Magiczerowxy/dsh-modef",
-      "license": "MIT",
-      "version": "0.9.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.modef_0.9.1.zip",
-      "icon": "settings"
-    },
-    {
-      "id": "jinghan.dafeiyu-pet",
-      "name": {
-        "default": "Dafeiyu Pet",
-        "zh-CN": "大肥鱼桌宠"
-      },
-      "description": {
-        "default": "Three-view transparent desktop pet: click to interact, drag to move, bubble auto-fits. Sprites from 1190fasheqi/dafeiyu-pet (MIT). Nox port by 惊寒.",
-        "zh-CN": "三视图透明桌宠：单击互动、拖拽移动、气泡随内容自适应。形象与台词来自 1190fasheqi/dafeiyu-pet（MIT）。nox 适配：惊寒。"
-      },
-      "author": "jinghan",
-      "repository": "https://github.com/jinghan/dafeiyu-pet",
-      "license": "MIT",
-      "version": "2.9.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.dafeiyu-pet_2.9.1.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/jinghan.dafeiyu-pet.png"
-    },
-    {
-      "id": "jinghan.han",
-      "name": {
-        "default": "Han Kernel",
-        "zh-CN": "寒"
-      },
-      "description": {
-        "default": "Han prompt kernel for Nox: installs rewrite/reasoning/lite kernels into prompts.custom with SHA-256 locking. By 惊寒.",
-        "zh-CN": "寒 · 提示词内核 nox 适配版：把 rewrite/reasoning/lite 三档内核装进 prompts.custom，带 SHA-256 指纹锁。作者：惊寒。"
-      },
-      "author": "jinghan",
-      "repository": "https://github.com/jinghan/han-nox",
-      "license": "CC-BY-NC-SA-4.0",
-      "version": "3.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.han_3.0.0.zip",
-      "icon": "box"
-    },
-    {
-      "id": "community.inpage-translator",
-      "name": {
-        "default": "In-Page Translator",
-        "zh-CN": "整页翻译"
-      },
       "description": {
         "default": "Translate the built-in browser's current page into Chinese. The plugin hands the task to the current AI session, which drives the browser itself.",
         "zh-CN": "把内置浏览器当前页面翻译成中文。插件把任务派给当前工作区的 AI 会话，由 AI 用自己的浏览器工具取节点、翻译、回填。"
       },
-      "author": "community",
-      "repository": "https://github.com/7gzgn/dsh-inpage-translator",
+      "id": "community.inpage-translator",
       "license": "MIT",
-      "version": "2.1.0",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/community.inpage-translator.png",
+      "name": {
+        "default": "In-Page Translator",
+        "zh-CN": "整页翻译"
+      },
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.inpage-translator_2.1.0.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/community.inpage-translator.png"
+      "repository": "https://github.com/7gzgn/dsh-inpage-translator",
+      "version": "2.1.0"
     },
     {
-      "id": "jinghan.env-deps",
-      "name": {
-        "default": "Environment Dependencies Viewer",
-        "zh-CN": "环境依赖查看器"
+      "author": "community",
+      "description": {
+        "default": "Port of dsh-modef to AiCode: a model picker with a Claude-style reasoning-effort slider, four max-tier animations, and a request hook that applies the chosen effort to OpenAI-compatible chat requests.",
+        "zh-CN": "将 dsh-modef 适配到 AiCode：模型列表 + Claude 风格推理强度滑块 + 四种最高档动画，并通过请求 hook 把所选档位写入 OpenAI 兼容的聊天请求。发布前请把 repository 改成你自己的仓库地址。"
       },
+      "icon": "settings",
+      "id": "community.modef",
+      "license": "MIT",
+      "name": {
+        "default": "Modef — Model & Reasoning Effort",
+        "zh-CN": "Modef 模型与推理强度"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/community.modef_0.9.1.zip",
+      "repository": "https://github.com/Magiczerowxy/dsh-modef",
+      "version": "0.9.1"
+    },
+    {
+      "author": "demo",
+      "description": {
+        "default": "Shows a floating ball while AiCode is in the background and expands it into an approval panel when the AI needs permission. Foreground requests are passed straight back to the in-app dialog.",
+        "zh-CN": "AiCode 在后台时显示悬浮球；AI 需要授权时展开审批面板。App 在前台时直接交回应用内确认框，不阻塞审批。"
+      },
+      "id": "demo.background-approval",
+      "license": "MIT",
+      "name": {
+        "default": "Background Approval",
+        "zh-CN": "后台审批"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.background-approval_1.1.1.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "version": "1.1.1"
+    },
+    {
+      "author": "demo",
+      "description": {
+        "default": "Demo plugin for conversation tips and plugin-level Shizuku permission.",
+        "zh-CN": "演示对话内提示条、插件级 Shizuku 授权、会话输入框写入 API 与文件/选区动作入口：可在插件配置页直接触发，也可以让 AI 调用两个演示工具。"
+      },
+      "id": "demo.capabilities",
+      "license": "MIT",
+      "name": {
+        "default": "Capability Demo",
+        "zh-CN": "能力演示"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.capabilities_1.0.0.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "version": "1.0.0"
+    },
+    {
+      "author": "demo",
+      "description": {
+        "default": "A demo chat page for sending instructions to the AI and receiving replies. It shows the message loop and permission approval flow used by QQ/WeChat bot bridges.",
+        "zh-CN": "演示给 AI 下达指令、接收回复并在网页内处理工具授权的对话界面，可作为 QQ / 微信机器人接入的消息回路示例。"
+      },
+      "icon": "users",
+      "id": "demo.chat-bridge",
+      "license": "MIT",
+      "name": {
+        "default": "Chat Bridge",
+        "zh-CN": "对话桥"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.chat-bridge_1.2.0.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "version": "1.2.0"
+    },
+    {
+      "author": "demo",
+      "description": {
+        "en": "Demonstrates plugin configuration page (configPage), settings/drawer/header slots and host Vue UI components with persistence.",
+        "zh-CN": "演示插件专属配置页面（configPage）、设置页/侧栏/顶栏槽位入口及宿主 Vue 组件库，支持配置的读取与持久化保存。"
+      },
+      "id": "demo.gallery",
+      "license": "MIT",
+      "name": {
+        "en": "UI & Config Demo",
+        "zh-CN": "UI与配置演示"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.gallery_1.1.0.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "version": "1.1.0"
+    },
+    {
+      "author": "demo",
+      "description": {
+        "en": "Manage existing global and project memories in Settings by reading and writing ~/.aicode/memory and the workspace .aicode/memory.",
+        "zh-CN": "在设置中管理现有的全局与项目记忆，直接读写 ~/.aicode/memory 与工作区 .aicode/memory。"
+      },
+      "icon": "book",
+      "id": "demo.memory",
+      "license": "MIT",
+      "name": {
+        "en": "Memory",
+        "zh-CN": "记忆管理"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.memory_1.0.1.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "version": "1.0.1"
+    },
+    {
+      "author": "demo",
+      "description": {
+        "en": "Starts a local OpenAI-compatible echo service so AiCode can verify plugin provider registration and requests.",
+        "zh-CN": "启动一个本机 OpenAI 兼容服务，把对话回显给 AiCode；用于验证插件提供商注册与请求链路。"
+      },
+      "id": "demo.provider",
+      "license": "MIT",
+      "name": {
+        "en": "Demo Provider",
+        "zh-CN": "演示提供商"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.provider_1.0.2.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "version": "1.0.2"
+    },
+    {
+      "author": "xzyy03",
+      "description": {
+        "default": "uploaded by owner",
+        "zh-CN": "拥有者自行上传，不应进入待审核"
+      },
+      "id": "demo.self-upload",
+      "license": "MIT",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/demo.self-upload.png",
+      "name": {
+        "default": "Self Upload",
+        "zh-CN": "自传测试"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.self-upload_1.0.0.zip",
+      "published_at": "2026-11-24T06:19:43Z",
+      "repository": "https://github.com/xzyy03/Nox",
+      "version": "1.0.0"
+    },
+    {
+      "author": "demo",
+      "description": {
+        "default": "Resident demo plugin: connects enabled SSH servers at app startup and exposes status/exec tools to the AI.",
+        "zh-CN": "常驻示例插件：App 启动时连接启用的 SSH 服务器，并向 AI 提供状态查看与远程命令工具。"
+      },
+      "id": "demo.ssh-manager",
+      "license": "MIT",
+      "name": {
+        "default": "SSH Manager",
+        "en": "SSH Manager",
+        "zh-CN": "SSH 管理"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.ssh-manager_1.1.4.zip",
+      "repository": "https://github.com/xzyy03/Nox-Plugins-Store",
+      "version": "1.1.4"
+    },
+    {
+      "author": "jinghan",
+      "description": {
+        "default": "Three-view transparent desktop pet: click to interact, drag to move, bubble auto-fits. Sprites from 1190fasheqi/dafeiyu-pet (MIT). Nox port by 惊寒.",
+        "zh-CN": "三视图透明桌宠：单击互动、拖拽移动、气泡随内容自适应。形象与台词来自 1190fasheqi/dafeiyu-pet（MIT）。nox 适配：惊寒。"
+      },
+      "id": "jinghan.dafeiyu-pet",
+      "license": "MIT",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/jinghan.dafeiyu-pet.png",
+      "name": {
+        "default": "Dafeiyu Pet",
+        "zh-CN": "大肥鱼桌宠"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.dafeiyu-pet_2.9.1.zip",
+      "repository": "https://github.com/jinghan/dafeiyu-pet",
+      "version": "2.9.1"
+    },
+    {
+      "author": "jinghan",
       "description": {
         "default": "List installed runtime tools and dependencies in the current environment, grouped with versions. By 惊寒.",
         "zh-CN": "探测并显示当前执行环境里已安装的运行时与依赖，按类别分组并带版本号。作者：惊寒。"
       },
-      "author": "jinghan",
-      "repository": "https://github.com/jinghan/env-deps-nox",
+      "icon": "layers",
+      "id": "jinghan.env-deps",
       "license": "MIT",
-      "version": "1.1.0",
+      "name": {
+        "default": "Environment Dependencies Viewer",
+        "zh-CN": "环境依赖查看器"
+      },
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.env-deps_1.1.0.zip",
-      "icon": "layers"
+      "repository": "https://github.com/jinghan/env-deps-nox",
+      "version": "1.1.0"
     },
     {
-      "id": "jinghan.subagents-pack",
-      "name": {
-        "default": "子代理团队",
-        "zh-CN": "子代理团队"
+      "author": "jinghan",
+      "description": {
+        "default": "Han prompt kernel for Nox: installs rewrite/reasoning/lite kernels into prompts.custom with SHA-256 locking. By 惊寒.",
+        "zh-CN": "寒 · 提示词内核 nox 适配版：把 rewrite/reasoning/lite 三档内核装进 prompts.custom，带 SHA-256 指纹锁。作者：惊寒。"
       },
+      "icon": "box",
+      "id": "jinghan.han",
+      "license": "CC-BY-NC-SA-4.0",
+      "name": {
+        "default": "Han Kernel",
+        "zh-CN": "寒"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.han_3.0.0.zip",
+      "repository": "https://github.com/jinghan/han-nox",
+      "version": "3.0.0"
+    },
+    {
+      "author": "jinghan",
+      "description": {
+        "default": "Local reverse proxy that spoofs whitelisted coding clients, with multi-upstream routing by model.",
+        "zh-CN": "本地 HTTP 反代：把请求伪装成 Codex / Claude Code 等白名单客户端转发到中转站，绕开「仅支持编程客户端」的 403。支持多上游聚合，按请求 model 自动路由。"
+      },
+      "icon": "shield",
+      "id": "jinghan.spoof-proxy",
+      "license": "MIT",
+      "name": {
+        "default": "Client Spoof Proxy",
+        "zh-CN": "客户端伪装反代"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.spoof-proxy_1.1.0.zip",
+      "repository": "https://github.com/jinghan/spoof-proxy",
+      "version": "1.1.0"
+    },
+    {
+      "author": "jinghan",
       "description": {
         "default": "Installs a curated team of 8 sub-agents into ~/.nox/agents on enable. Add/remove each one or all from a simple panel. By 惊寒.",
         "zh-CN": "装插件即自动把 8 个子代理写进 ~/.nox/agents；面板里可单独或批量安装/卸载，卸载插件即删除子代理。作者：惊寒。"
       },
-      "author": "jinghan",
-      "repository": "https://github.com/jinghan/subagents-pack-nox",
+      "icon": "users",
+      "id": "jinghan.subagents-pack",
       "license": "MIT",
-      "version": "1.1.1",
+      "name": {
+        "default": "子代理团队",
+        "zh-CN": "子代理团队"
+      },
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.subagents-pack_1.1.1.zip",
-      "icon": "users"
+      "repository": "https://github.com/jinghan/subagents-pack-nox",
+      "version": "1.1.1"
     },
     {
-      "id": "caudi.core",
-      "name": {
-        "zh-CN": "Caudi 内核",
-        "default": "Caudi Core"
-      },
-      "description": {
-        "zh-CN": "打包并安装 Caudi 人格（系统提示词 + 长期记忆）到 Muse 自定义提示词，支持叠加与完全接管。",
-        "default": "Bundles and installs the Caudi persona (system prompt + long-term memory) into Muse custom prompts; append or full takeover."
-      },
-      "author": "caudi",
-      "repository": "https://github.com/caudi/core",
-      "license": "MIT",
-      "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/caudi.core_1.0.0.zip",
-      "icon": "box"
-    },
-    {
-      "id": "jinghan.toolbox",
-      "name": {
-        "default": "JH Toolbox",
-        "zh-CN": "JH 工具箱"
-      },
+      "author": "jinghan",
       "description": {
         "default": "JH security toolbox: 40 tools, 365 reference docs, 86 scripts, 7 team subagents. Gate, license, star and telemetry layers removed.",
         "zh-CN": "JH 安全工具箱：40 个工具 / 365 篇参考文档 / 86 个脚本 / 7 个团队子代理。已剔除卡密门控、点星、更新检查与提示注入层。"
       },
-      "author": "jinghan",
-      "repository": "https://github.com/ADWMC/helm-d",
+      "icon": "shield",
+      "id": "jinghan.toolbox",
       "license": "AGPL-3.0-or-later",
-      "version": "1.1.8",
+      "name": {
+        "default": "JH Toolbox",
+        "zh-CN": "JH 工具箱"
+      },
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.toolbox_1.1.8.zip",
-      "icon": "shield"
+      "repository": "https://github.com/ADWMC/helm-d",
+      "version": "1.1.8"
     },
     {
-      "id": "jinghan.spoof-proxy",
-      "name": {
-        "zh-CN": "客户端伪装反代",
-        "default": "Client Spoof Proxy"
-      },
-      "description": {
-        "zh-CN": "本地 HTTP 反代：把请求伪装成 Codex / Claude Code 等白名单客户端转发到中转站，绕开「仅支持编程客户端」的 403。支持多上游聚合，按请求 model 自动路由。",
-        "default": "Local reverse proxy that spoofs whitelisted coding clients, with multi-upstream routing by model."
-      },
-      "author": "jinghan",
-      "repository": "https://github.com/jinghan/spoof-proxy",
-      "license": "MIT",
-      "version": "1.1.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/jinghan.spoof-proxy_1.1.0.zip",
-      "icon": "shield"
-    },
-    {
-      "id": "一束挽风.header-disguise",
-      "name": {
-        "default": "Header Disguise Gateway",
-        "zh-CN": "请求头伪装网关"
-      },
-      "description": {
-        "default": "Local OpenAI-compatible gateway that rewrites outgoing request fingerprints to a whitelisted coding client (Codex CLI / Claude Code) so header-gated relays stop rejecting with 403.",
-        "zh-CN": "本地 OpenAI 兼容网关：把外发请求伪装成白名单内的编程客户端（Codex CLI / Claude Code），绕过中转站的 UA 客户端拦截。"
-      },
-      "author": "yyds0399",
-      "repository": "https://github.com/yintaozhou1/header-disguise",
-      "license": "MIT",
-      "version": "1.4.1",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.header-disguise_1.4.1.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.header-disguise.png"
-    },
-    {
-      "id": "一束挽风.pojia-gateway",
-      "name": {
-        "default": "Pojia Gateway",
-        "zh-CN": "网关管家"
-      },
-      "description": {
-        "default": "Self-contained AI provider gateway: manages accounts for 14 providers, exposes OpenAI-compatible /v1 endpoints.",
-        "zh-CN": "独立运行的 AI 供应商聚合网关：插件内管理多家账号，对外提供 OpenAI 兼容 /v1 接口。"
-      },
-      "author": "yyds0399",
-      "repository": "https://github.com/xzyy03/pojia2api-android",
-      "license": "MIT",
-      "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.pojia-gateway_1.0.0.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.pojia-gateway.png"
-    },
-    {
-      "id": "一束挽风.wb-gateway",
-      "name": {
-        "default": "WorkBuddy Gateway",
-        "zh-CN": "WorkBuddy 网关"
-      },
-      "description": {
-        "default": "Self-contained WorkBuddy gateway: manages accounts, talks to upstream directly, exposes OpenAI-compatible /v1 endpoints.",
-        "zh-CN": "独立运行的 WorkBuddy 网关：插件内管理账号、直连上游，对外提供 OpenAI 兼容 /v1 接口。"
-      },
-      "author": "yyds0399",
-      "repository": "https://github.com/yintaozhou1/wb2api_android",
-      "license": "MIT",
-      "version": "1.6.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.wb-gateway_1.6.0.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.wb-gateway.png"
-    },
-    {
-      "id": "bigorange.github-mcp",
-      "name": {
-        "zh-CN": "GitHub MCP",
-        "default": "GitHub MCP"
-      },
-      "description": {
-        "zh-CN": "登录 GitHub 后自动获取你的仓库项目：账号工作台、仓库列表与详情、语言构成、分支、提交、Issue/PR、代码浏览与搜索，全部工具同时以本地 MCP 服务对外提供，可接入任意 MCP 客户端。",
-        "default": "GitHub workspace tools after login: dashboard, repositories, branches, commits, issues, pulls, file browsing, search — exposed both as plugin tools and a local MCP server."
-      },
-      "author": "bigorange",
-      "repository": "https://github.com/bigorange/nox-github-mcp",
-      "license": "MIT",
-      "version": "1.5.2",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/bigorange.github-mcp_1.5.2.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/bigorange.github-mcp.png"
-    },
-    {
-      "id": "liulei92.gpt-gateway",
-      "name": {
-        "default": "GPT Gateway",
-        "zh-CN": "GPT 网关"
-      },
+      "author": "liulei92",
       "description": {
         "default": "Local OpenAI-compatible gateway: begamob v3 reverse proxy (gpt-5-mini / gemini-2.5-pro) + goatchat image generation. Protocol translated from the AI reverse proxy gateway APK and the Chat-AI-APP-2api research.",
         "zh-CN": "本地 OpenAI 兼容网关：begamob v3 反代（gpt-5-mini / gemini-2.5-pro）+ goatchat 文生图。协议自 AI 反代网关 APK 与 Chat-AI-APP-2api 研究成果移植。"
       },
-      "author": "liulei92",
-      "repository": "https://github.com/lza6/Chat-AI-APP-2api",
+      "id": "liulei92.gpt-gateway",
       "license": "MIT",
-      "version": "1.0.1",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/liulei92.gpt-gateway.png",
+      "name": {
+        "default": "GPT Gateway",
+        "zh-CN": "GPT 网关"
+      },
       "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/liulei92.gpt-gateway_1.0.1.zip",
-      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/liulei92.gpt-gateway.png"
+      "repository": "https://github.com/lza6/Chat-AI-APP-2api",
+      "version": "1.0.1"
+    },
+    {
+      "author": "moss",
+      "description": {
+        "default": "Deploy the armor prompt into prompts.custom: full/lite, global/project, auto backup and rollback. Pure page implementation.",
+        "zh-CN": "破甲提示词一键部署进 prompts.custom：完整版/精简版、全局/项目级、自动备份与一键回滚。纯页面实现，不依赖插件进程。"
+      },
+      "icon": "shield",
+      "id": "moss.armor-deepseek",
+      "license": "MIT",
+      "name": {
+        "default": "Armor Console (DeepSeek v2.4)",
+        "zh-CN": "破甲控制台 · DeepSeek v2.4"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/moss.armor-deepseek_1.1.1.zip",
+      "repository": "https://github.com/moss/armor-deepseek",
+      "version": "1.1.1"
+    },
+    {
+      "author": "raccoon",
+      "description": {
+        "default": "Runs a local OpenAI-compatible gateway for SenseNova Raccoon Work in the container, with a pooled account pool, automatic token refresh, daily check-in, and QR-code / SMS login.",
+        "zh-CN": "在容器内运行商汤小浣熊（Raccoon Work）的本地 OpenAI 兼容网关，支持账号池轮换、令牌自动续期、每日自动签到，以及扫码与短信登录。"
+      },
+      "id": "raccoon.gateway",
+      "license": "MIT",
+      "name": {
+        "default": "Raccoon Gateway",
+        "zh-CN": "小浣熊网关"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/raccoon.gateway_1.0.1.zip",
+      "repository": "https://github.com/raccoon-gateway/raccoon-gateway-plugin",
+      "version": "1.0.1"
+    },
+    {
+      "author": "yyds0399",
+      "description": {
+        "default": "Local OpenAI-compatible gateway that rewrites outgoing request fingerprints to a whitelisted coding client (Codex CLI / Claude Code) so header-gated relays stop rejecting with 403.",
+        "zh-CN": "本地 OpenAI 兼容网关：把外发请求伪装成白名单内的编程客户端（Codex CLI / Claude Code），绕过中转站的 UA 客户端拦截。"
+      },
+      "id": "一束挽风.header-disguise",
+      "license": "MIT",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.header-disguise.png",
+      "name": {
+        "default": "Header Disguise Gateway",
+        "zh-CN": "请求头伪装网关"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.header-disguise_1.4.1.zip",
+      "repository": "https://github.com/yintaozhou1/header-disguise",
+      "version": "1.4.1"
+    },
+    {
+      "author": "yyds0399",
+      "description": {
+        "default": "Self-contained AI provider gateway: manages accounts for 14 providers, exposes OpenAI-compatible /v1 endpoints.",
+        "zh-CN": "独立运行的 AI 供应商聚合网关：插件内管理多家账号，对外提供 OpenAI 兼容 /v1 接口。"
+      },
+      "id": "一束挽风.pojia-gateway",
+      "license": "MIT",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.pojia-gateway.png",
+      "name": {
+        "default": "Pojia Gateway",
+        "zh-CN": "网关管家"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.pojia-gateway_1.0.0.zip",
+      "repository": "https://github.com/xzyy03/pojia2api-android",
+      "version": "1.0.0"
+    },
+    {
+      "author": "yyds0399",
+      "description": {
+        "default": "Self-contained WorkBuddy gateway: manages accounts, talks to upstream directly, exposes OpenAI-compatible /v1 endpoints.",
+        "zh-CN": "独立运行的 WorkBuddy 网关：插件内管理账号、直连上游，对外提供 OpenAI 兼容 /v1 接口。"
+      },
+      "id": "一束挽风.wb-gateway",
+      "license": "MIT",
+      "logo": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/icons/一束挽风.wb-gateway.png",
+      "name": {
+        "default": "WorkBuddy Gateway",
+        "zh-CN": "WorkBuddy 网关"
+      },
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/一束挽风.wb-gateway_1.6.0.zip",
+      "repository": "https://github.com/yintaozhou1/wb2api_android",
+      "version": "1.6.0"
     }
-  ]
+  ],
+  "schema_version": 1
 }
