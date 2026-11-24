@@ -151,6 +151,11 @@ def extract_icon(data: bytes, manifest: dict) -> tuple[str, bytes] | None:
     return (Path(path).suffix.lower(), payload)
 
 
+def now_iso() -> str:
+    from datetime import datetime, timezone
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 def localized(text) -> dict:
     if isinstance(text, dict):
         return text
@@ -269,6 +274,9 @@ def main() -> int:
                 "repository": manifest.get("repository") or f"https://github.com/{inbox}",
                 "license": manifest.get("license") or "MIT",
                 "version": version,
+                # 上架时间：审核 App 据此区分「历史存量」与「本次上架」，
+                # 缺这个字段的条目都是加字段之前入库的，按已审核处理。
+                "published_at": now_iso(),
                 "package_url": (
                     f"https://raw.githubusercontent.com/{index_repo}/main/"
                     f"{PACKAGES_DIR}/{plugin_id}_{version}.zip"
