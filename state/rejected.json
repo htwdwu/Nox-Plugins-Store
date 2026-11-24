@@ -1,5 +1,6 @@
 {
   "demo.review-alpha_1.0.0.zip": "人工拒绝",
   "demo.review-beta_2.1.0.zip": "人工拒绝",
-  "demo.self-upload_1.0.0.zip": "上传功能测试残留"
+  "demo.self-upload_1.0.0.zip": "上传功能测试残留",
+  "demo.pr-test_1.0.0.zip": "验证已删除状态"
 }
