@@ -410,14 +410,14 @@
         "zh-CN": "触发测试"
       },
       "description": {
-        "default": "Temporary plugin to verify the auto-ingest hook.",
-        "zh-CN": "临时插件，用于验证上传即触发采集。"
+        "default": "Temp plugin",
+        "zh-CN": "临时插件"
       },
       "author": "demo",
       "repository": "https://github.com/xzyy03/Nox",
       "license": "MIT",
-      "version": "1.0.0",
-      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.hook-test_1.0.0.zip"
+      "version": "1.0.1",
+      "package_url": "https://raw.githubusercontent.com/xzyy03/Nox-Plugins-Store/main/packages/demo.hook-test_1.0.1.zip"
     }
   ]
 }
