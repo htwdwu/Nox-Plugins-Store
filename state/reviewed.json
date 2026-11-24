@@ -98,5 +98,13 @@
   "一束挽风.wb-gateway": {
     "at": "2026-11-24T06:00:00Z",
     "version": "1.6.0"
+  },
+  "demo.review-alpha": {
+    "version": "1.0.0",
+    "at": "2026-11-24T06:12:29Z"
+  },
+  "demo.review-beta": {
+    "version": "2.1.0",
+    "at": "2026-11-24T06:12:29Z"
   }
 }
